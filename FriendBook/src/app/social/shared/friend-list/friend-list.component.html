@@ -1,0 +1,10 @@
+<div class="parent">
+        <div class="person" *ngFor="let friend of friendList ">
+            <img src={{friend.image}} alt="">
+            <div class="data">
+            <p><strong>{{friend.name}}</strong></p>
+            <p>{{friend.position}} at {{friend.company}}</p>
+        </div>
+        <button class="info"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
+        </div>
+</div>

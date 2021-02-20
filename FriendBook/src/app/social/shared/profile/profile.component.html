@@ -1,0 +1,25 @@
+<div class="parent">
+<img src="../../../../assets/profile.jpg" alt="">
+<div class="nameAndPos">
+    {{name}}
+
+    <p>{{position}}</p>
+</div>
+
+<div class="followers">
+<div>
+    <p>{{following}}</p>
+    Following
+</div>
+<div>
+    <p>{{followers}}</p>
+    Followers
+</div>
+<div>
+
+    <p>{{activities}}</p>
+    Activites
+</div>
+</div>
+<button class="addFriendButton" *ngIf="internalAccess"><i class="fa fa-user"></i> ADD AS FRIEND</button>
+</div>

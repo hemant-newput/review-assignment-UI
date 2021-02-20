@@ -1,0 +1,42 @@
+.parent{
+
+    position: relative;
+    width: 100%;
+    .post{
+        background-color: white;
+        position: relative;
+        width: 90%;
+        float: right;
+        margin: 30px;
+        .name{
+            margin: 20px;
+        }
+        img{
+            width: 100%;
+        }
+        .data{
+            margin: 20px;
+        }
+        .info{
+
+            position: absolute;
+            right: 5px;
+            border: 0px;
+            background-color: inherit;
+            top:5px;
+        }
+        button{
+            background-color: white;
+            color: grey;
+            padding: 5px 20px;
+            border: 0px;
+        }
+        .logo{
+            width: 80px;
+            position: absolute;
+            top: 10px;
+            left: -100px;
+        }
+    }
+
+}

@@ -1,0 +1,49 @@
+.parent{
+
+    .basic{
+        margin-top: 20px;
+         background-color: white;
+        position: relative;
+        .heading{
+
+            width: 80%;
+            padding: 20px 30px;
+            button{
+                position: absolute;
+                right: 10px;
+            }
+        }
+    }
+    .work{
+        position: relative;
+        background-color: white;
+        .heading{
+
+            padding: 20px 30px;
+        }
+    }
+    .wideRule{
+        background-color: rgb(197, 194, 194);
+        height: 3px;
+        margin: 20px;
+    }
+    table{
+        width: 50%;
+
+    td{
+        width: 50%;
+        padding: 10px;
+
+    }
+    th{
+        width: 50%;
+        padding: 10px 30px;
+    }
+    }
+    button{
+     position: absolute;
+     right: 25px;
+     top: 25px;
+
+    }
+}

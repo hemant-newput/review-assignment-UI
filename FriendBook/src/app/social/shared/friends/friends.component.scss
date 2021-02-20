@@ -1,0 +1,30 @@
+.parent{
+    margin: 20px;
+    border: 1px solid grey;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    .heading{
+
+        font-weight: bold;
+        padding-top: 15px;
+        color: rgb(83, 80, 80);
+        hr{
+            margin-top: 10px;
+        }
+        p{
+            margin-left: 50px;
+        }
+    }
+    .person
+    {
+        float: left;
+
+    img{
+        width: 50px;
+        margin: 5px 15px;
+    }
+    }
+}

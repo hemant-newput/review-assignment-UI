@@ -1,0 +1,10 @@
+<div class="parent">
+    <div class="navbar">
+        <div [routerLink]="{outlets:{timelineRouter:['posts']}}" class="navItems" routerLinkActive="selected" >Timeline</div>
+        <div [routerLink]="{outlets:{timelineRouter:['about']}}" class="navItems" routerLinkActive="selected" >About</div>
+        <div [routerLink]="{outlets:{timelineRouter:['photos']}}" class="navItems" routerLinkActive="selected" >Photos</div>
+        <div [routerLink]="{outlets:{timelineRouter:['friends']}}" class="navItems" routerLinkActive="selected" >Friends</div>
+    </div>
+    <router-outlet name="timelineRouter"></router-outlet>
+
+</div>

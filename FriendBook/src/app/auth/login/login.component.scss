@@ -1,0 +1,48 @@
+.login-form{
+text-align: center;
+position: relative;
+margin: 0px auto;
+top: 70px;
+background-color: transparent;
+width: 600px;
+}
+.input-text{
+    margin: 10px 30px;
+    padding: 15px 20px;
+    line-height: 10px;
+    width: 400px;
+    background-color:rgb(255, 255, 255);
+    border-radius: 20px;
+    font-size: larger;
+}
+.btn {
+    margin: 40px;
+    padding: 10px 40px;
+    background-color: #2a2a2a;
+    color: white;
+  }
+  .btn:hover{
+      box-shadow: 4px 4px 4px 2px;
+      color:white ;
+      font-weight: bolder;
+  }
+
+img{
+    margin: 20px;
+}
+.parent{
+    background-image:url("../../../assets/wallpaper6.jpg");
+    background-size: cover;
+    position: relative;
+    height: 100%;
+    color: white;
+.forget{
+    color: white;
+    background-color: transparent;
+    border: none;
+    &:hover{
+        border-bottom: 1px;
+    }
+}
+}
+

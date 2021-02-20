@@ -1,0 +1,37 @@
+.parent{
+    background-color: rgb(207, 207, 207);
+    min-height: 1500px;
+    .left-parent{
+        width: 20%;
+        display: inline-block;
+        position: absolute;
+        top: 300px;
+    }
+    .right-parent{
+        width: 75%;
+        margin-left: 25%;
+        display: inline-block;
+    }
+}
+.wallpaper
+{
+    height: auto;
+    width: 100%;
+
+    p{
+        font-size: larger;
+        padding: 20px 50px 5px 25px;
+        margin-top: 50px;
+        font-weight: bolder;
+    }
+    .image{
+        position: relative;
+
+        img{
+            width: 97%;
+            display: block;
+            margin: 0px auto;
+            height: 350px;
+        }
+    }
+}

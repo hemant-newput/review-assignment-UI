@@ -1,0 +1,40 @@
+<div class="parent">
+    <app-nav-bar></app-nav-bar>
+    <div class="wallpaper">
+        <p>Profile Social</p>
+        <div class="image">
+            <img src="../../../assets/hero-img.jpg" alt="">
+        </div>
+    </div>
+    <div class="left-parent">
+
+    <div class="profile">
+        <app-profile
+            [name]="name"
+            [position]='position'
+            [internalAccess]='internalAccess'
+            [following]='following'
+            [followers]='followers'
+            [activities]='activities'
+        >
+        </app-profile>
+    </div>
+
+    <div class="follows">
+        <app-follow [suggetions]='suggetions'></app-follow>
+    </div>
+
+    <div class="friends">
+        <app-friends></app-friends>
+    </div>
+
+</div>
+
+
+    <div class="timeline right-parent">
+        <app-timeline>
+            <router-outlet name="timelineRouter"></router-outlet>
+        </app-timeline>
+
+    </div>
+</div>

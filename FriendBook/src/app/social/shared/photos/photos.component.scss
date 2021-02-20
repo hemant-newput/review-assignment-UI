@@ -1,0 +1,17 @@
+.parent{
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+        background-color: white;
+
+    .photo-container{
+        display: flex;
+        justify-content: space-evenly;
+
+        img{
+            padding: 6px;
+            width: 270px;
+            height: 200px;
+        }
+    }
+}

@@ -1,0 +1,38 @@
+.parent{
+    height: 55px;
+    width: 100%;
+    background-color: rgb(0, 102, 255);
+    .logo{
+        float: left;
+        p{
+            font-size: larger;
+            font-family: 'Abril Fatface';
+            padding: 10px 50px;
+            color: white;
+        }
+    }
+    .icons{
+        color:white;
+        display: flex;
+        flex-direction: row;
+        float: right;
+        img{
+            width: 40px;
+        }
+        ul{
+            list-style-type: none;
+        }
+        li{
+            display: inline;
+            margin-left: 30px;
+            margin-top: 5px;
+            button{
+                background-color: transparent;
+                border: 0px;
+                margin:10px;
+                color: white;
+                font-size: larger;
+            }
+        }
+    }
+}

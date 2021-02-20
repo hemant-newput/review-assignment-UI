@@ -1,0 +1,19 @@
+<div class="parent">
+    <div class="post" *ngFor="let post of posts ">
+        <div class="name">
+            <strong>{{post.name}} posted on your Timeline</strong>
+            <p>50 mins ago</p>
+        </div>
+        <img src={{post.image}} width="500px" alt="">
+        <div class="data">
+        <p><strong>{{post.name}} posted on your Timeline</strong></p>
+        <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium veniam hic dolores debitis, quae aliquam inventore porro iusto temporibus qui incidunt deleniti nobis laboriosam nulla id eius corrupti repudiandae quo! </p>
+            <hr>
+       <button><i class="fa fa-thumbs-up"></i> Like({{post.like}})</button>
+       <button><i class="fa fa-comments"></i> Comments({{post.comment}})</button>
+       <button><i class="fa fa-share-alt"></i> Share({{post.share}})</button>
+    </div>
+    <button class="info"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
+    <img src={{post.logo}} class="logo" alt="">
+    </div>
+</div>
