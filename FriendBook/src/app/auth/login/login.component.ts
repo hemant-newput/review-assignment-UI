@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder:FormBuilder,private router:Router) { }
 
   ngOnInit(): void {
-
+    document.title = 'Login';
     this.loginForm = this.formBuilder.group({
       username:['',Validators.required],
       password:['',Validators.required]
@@ -21,6 +21,6 @@ export class LoginComponent implements OnInit {
   submitForm()
   {
     //Hii i will run when u submit form
-    this.router.navigate(['/social/home'])
+    this.router.navigate(['/home'])
   }
 }

@@ -18,6 +18,7 @@ export class PhotosComponent implements OnInit {
     value:"../../../../assets/photo4.jpg"
   }]
   ngOnInit(): void {
+    document.title = 'Photos';
   }
 
 }

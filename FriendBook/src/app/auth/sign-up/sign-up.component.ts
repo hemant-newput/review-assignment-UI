@@ -11,6 +11,7 @@ export class SignUpComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    document.title = 'Sign Up';
     this.signUpForm = this.formBuilder.group({
       fullName:['', Validators.required],
       email:['', Validators.required],

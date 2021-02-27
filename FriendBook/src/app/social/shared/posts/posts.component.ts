@@ -14,6 +14,7 @@ public posts = [
   {name:'Deepa Dwivedi',like:'1000',comments:'20',share:'15',image:'../../../../assets/wallpaper3.jpg',logo:'../../../../assets/loginAvatar3.png'},
 ];
   ngOnInit(): void {
+    document.title = 'Timeline';
   }
 
 }

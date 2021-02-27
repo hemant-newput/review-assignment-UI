@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChange } from '@angular/core';
 
 @Component({
   selector: 'app-home-page',
@@ -29,10 +29,12 @@ export class HomePageComponent implements OnInit {
       name: 'Gurpreet Chabbra',
       position: 'UI Developer'
     },
-  ]
-  constructor() { }
+  ];
+  public pageName = 'Profile Social'
+  constructor() {
+   }
 
   ngOnInit(): void {
+    // this.pageName = ("Profile Social"+ window.location.href.replace(window.location.origin,'')).split('/').join('>>')
   }
-
 }

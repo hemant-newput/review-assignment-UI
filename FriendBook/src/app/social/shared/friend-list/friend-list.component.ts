@@ -21,6 +21,7 @@ export class FriendListComponent implements OnInit {
     {name:'Rupak',position:'SDE',company:'Newput',image:'../../../../assets/profile.jpg'},
   ];
   ngOnInit(): void {
+    document.title = 'Friends';
   }
 
 }

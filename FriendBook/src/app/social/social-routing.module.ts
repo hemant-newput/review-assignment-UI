@@ -9,11 +9,12 @@ import { PostsComponent } from './shared/posts/posts.component';
 import { ProfileComponent } from './shared/profile/profile.component';
 
 const routes: Routes = [
-  {path:'home',component:HomePageComponent,children:[
-    {path:'posts',component:PostsComponent,outlet:'timelineRouter'},
-    {path:'about',component:AboutComponent,outlet:'timelineRouter'},
-    {path:'photos',component:PhotosComponent,outlet:'timelineRouter'},
-    {path:'friends',component:FriendListComponent,outlet:'timelineRouter'}
+  {path:'',component:HomePageComponent,children:[
+    {path:'',redirectTo:'posts',pathMatch:'full' },
+    {path:'posts',component:PostsComponent},
+    {path:'about',component:AboutComponent},
+    {path:'photos',component:PhotosComponent},
+    {path:'friends',component:FriendListComponent}
   ] },
 
 ];
