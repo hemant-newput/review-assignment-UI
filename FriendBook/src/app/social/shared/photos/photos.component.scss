@@ -1,17 +1,13 @@
 .parent{
     margin-top: 20px;
     padding: 20px;
-    display: flex;
-        background-color: white;
-
+    background-color: white;
     .photo-container{
-        display: flex;
-        justify-content: space-evenly;
-
+        display: inline-block;
+        width: 25%;
         img{
-            padding: 6px;
-            width: 270px;
-            height: 200px;
+            padding: 2%;
+            width: 100%;
         }
     }
 }

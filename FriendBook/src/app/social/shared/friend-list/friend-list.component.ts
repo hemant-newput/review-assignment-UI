@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FriendListService } from 'src/app/services/friendListService/friend-list.service';
 
 @Component({
   selector: 'app-friend-list',
@@ -7,21 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FriendListComponent implements OnInit {
 
-  constructor() { }
-  public friendList= [
-    {name:'Hemant Shrivastava',position:'SDE',company:'Google',image:'../../../../assets/profile.jpg'},
-    {name:'Piyush Chandak',position:'SDE',company:'Microsoft',image:'../../../../assets/profile.jpg'},
-    {name:'Udit Jain',position:'SDE',company:'Facebook',image:'../../../../assets/profile.jpg'},
-    {name:'Gurpreet Chabbra',position:'SDE',company:'Apple',image:'../../../../assets/profile-girl.png'},
-    {name:'Awanish Tiwari',position:'SDE',company:'Newput',image:'../../../../assets/profile.jpg'},
-    {name:'Siya',position:'SDE',company:'Newput',image:'../../../../assets/profile.jpg'},
-    {name:'Anjana',position:'SDE',company:'Newput',image:'../../../../assets/profile-girl.png'},
-    {name:'Alex taxeria',position:'SDE',company:'Newput',image:'../../../../assets/profile.jpg'},
-    {name:'Suman',position:'SDE',company:'Newput',image:'../../../../assets/profile.jpg'},
-    {name:'Rupak',position:'SDE',company:'Newput',image:'../../../../assets/profile.jpg'},
-  ];
+  constructor(private friendService:FriendListService) { }
+  public friendList;
   ngOnInit(): void {
     document.title = 'Friends';
+    this.friendList = this.friendService.getFriendList();
   }
 
+  public Unfriend(friend)
+  {
+    friend.status = false;
+    this.friendService.unfriend(friend);
+
+  }
+  public Addfriend(friend)
+  {
+    friend.status = true;
+  }
 }

@@ -1,4 +1,99 @@
+<div class="parent">
+    <div class="basic">
+        <div class="heading">BASIC INFORMATION</div>
+        <button (click)="makeBasicFormEditable()" class="edit btn btn-primary"><i class="fa fa-edit"></i></button>
+        <hr>
+        <div class="basic-info-form">
+            <form [formGroup]="basicForm">
+                <div class="form-group row">
+                    <label for="name" class="col-sm-2 col-form-label">Full Name</label>
+                    <div class="col-sm-10">
+                        <input type="email" formControlName="name" class="form-control" id="name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+                    <div class="col-sm-10">
+                        <input *ngIf="!isBasicFormEditable" type="text" formControlName="gender" class="form-control" id="gender">
+                        <select *ngIf="isBasicFormEditable" class="form-control" formControlName="gender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                          </select>
+                    </div>
 
+                </div>
+                <div class="form-group row">
+                    <label for="dob" class="col-sm-2 col-form-label">DOB</label>
+                    <div class="col-sm-10">
+                        <input *ngIf="!isBasicFormEditable" type="text" formControlName="dob" class="form-control" id="dob">
+                        <input *ngIf="isBasicFormEditable" type="date" formControlName="dob" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="married" class="col-sm-2 col-form-label">Martial Status</label>
+                    <div class="col-sm-10">
+                        <input type="text" formControlName="married" class="form-control" id="married">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="location" class="col-sm-2 col-form-label">Location</label>
+                    <div class="col-sm-10">
+                        <input type="text" formControlName="location" class="form-control" id="location">
+                    </div>
+                </div>
+
+                <div *ngIf="isBasicFormEditable" class="form-group row">
+                    <div class="col-sm-4 submitbtns">
+                        <button type="submit" (click)="updateBasicInfo()" class="btn btn-warning">Update</button>
+                        <button type="submit" (click)="makeBasicFormUneditable()"
+                            class="btn btn-secondary">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <hr class="wideRule">
+    <div class="work">
+        <div class="heading">WORK</div>
+        <hr>
+        <button (click)="makeWorkFormEditable()" class="edit btn btn-primary"><i class="fa fa-edit"></i></button>
+        <div class="basic-info-form">
+            <form [formGroup]="workForm">
+                <div class="form-group row">
+                    <label for="occupation" class="col-sm-2 col-form-label">Occupation</label>
+                    <div class="col-sm-10">
+                        <input type="text" formControlName="occupation" class="form-control" id="occupation">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="skills" class="col-sm-2 col-form-label">Skills</label>
+                    <div class="col-sm-10">
+                        <input type="text" formControlName="skills" class="form-control" id="skills">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="job" class="col-sm-2 col-form-label">Job</label>
+                    <div class="col-sm-10">
+                        <input type="text" formControlName="job" class="form-control" id="job">
+                    </div>
+                </div>
+                <div *ngIf="isWorkFormEditable" class="form-group row">
+                    <div class="col-sm-4 submitbtns">
+                        <button type="submit" (click)="updateWorkInfo()" class="btn btn-warning">Update</button>
+                        <button type="submit" (click)="makeWorkFormUneditable()"
+                            class="btn btn-secondary">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!--
 <div class="parent">
     <div class="basic">
         <div class="heading">BASIC INFORMATION</div>
@@ -54,4 +149,4 @@
         </div>
     </div>
 
-</div>
+</div> -->

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from '../../services/loginService/login.service'
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm : FormGroup
-  constructor(private formBuilder:FormBuilder,private router:Router) { }
+  constructor(private formBuilder:FormBuilder,private router:Router,private loginService:LoginService) { }
 
   ngOnInit(): void {
     document.title = 'Login';
@@ -21,6 +22,6 @@ export class LoginComponent implements OnInit {
   submitForm()
   {
     //Hii i will run when u submit form
-    this.router.navigate(['/home'])
+    (this.loginService.tryLogin(this.loginForm.value.username,this.loginForm.value.password)) ? this.router.navigate(['/home']): this.router.navigate(['/login']);
   }
 }

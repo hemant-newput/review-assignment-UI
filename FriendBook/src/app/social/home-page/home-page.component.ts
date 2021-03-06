@@ -35,6 +35,6 @@ export class HomePageComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    // this.pageName = ("Profile Social"+ window.location.href.replace(window.location.origin,'')).split('/').join('>>')
+    this.pageName = ("Profile Social"+ window.location.href.replace(window.location.origin,'')).split('/').join('>>')
   }
 }

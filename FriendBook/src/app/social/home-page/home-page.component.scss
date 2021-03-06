@@ -5,7 +5,7 @@
         width: 20%;
         display: inline-block;
         position: absolute;
-        top: 300px;
+        top: 250px;
     }
     .right-parent{
         width: 76%;
@@ -15,23 +15,16 @@
 }
 .wallpaper
 {
-
     width: 100%;
-
-    p{
-        font-size: larger;
-        padding: 20px 50px 5px 25px;
-        margin-top: 50px;
-        font-weight: bolder;
-    }
     .image{
         position: relative;
+        margin: 0px;
 
         img{
             width: 100%;
             display: block;
             margin: 0px auto;
-            height: 350px;
+            // height: 350px;
         }
     }
 }

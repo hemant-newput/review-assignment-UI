@@ -1,17 +1,25 @@
 .parent{
     margin: 20px;
-    border: 1px solid grey;
-    background-color: white;
     width: 100%;
-    min-height: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    text-align: center;
-    img{
 
-        margin: 0px auto;
-        width: 270px;
+
+    .data
+    {
+        border: 1px solid grey;
+        min-height: 200px;
+        background-color: white;
+            display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        text-align: center;
+    }
+    img{
+        margin: 10px auto;
+        width: 90%;
+        // border: 5px solid white;
+        border-radius : 100%;
 
     }
     .nameAndPos{
@@ -43,8 +51,8 @@
     }
 
     .addFriendButton{
-        color: rgb(99, 98, 98);
-        background-color: white;
+        // color: rgb(99, 98, 98);
+        // background-color: white;
         padding: 5px 10px;
     }
 

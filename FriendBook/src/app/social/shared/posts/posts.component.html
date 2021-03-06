@@ -4,16 +4,77 @@
             <strong>{{post.name}} posted on your Timeline</strong>
             <p>50 mins ago</p>
         </div>
-        <img src={{post.image}} width="500px" alt="">
+        <div class="image-container" style="background-image: url({{post.image}});">
+            <!-- <img src={{post.image}} alt=""> -->
+        </div>
         <div class="data">
-        <p><strong>{{post.name}} posted on your Timeline</strong></p>
-        <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium veniam hic dolores debitis, quae aliquam inventore porro iusto temporibus qui incidunt deleniti nobis laboriosam nulla id eius corrupti repudiandae quo! </p>
+            <p><strong>{{post.name}} posted on your Timeline</strong></p>
+            <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium veniam hic dolores debitis, quae
+                aliquam inventore porro iusto temporibus qui incidunt deleniti nobis laboriosam nulla id eius corrupti
+                repudiandae quo! </p>
             <hr>
-       <button><i class="fa fa-thumbs-up"></i> Like({{post.like}})</button>
-       <button><i class="fa fa-comments"></i> Comments({{post.comment}})</button>
-       <button><i class="fa fa-share-alt"></i> Share({{post.share}})</button>
+            <button><i class="fa fa-thumbs-up"></i> Like({{post.like}})</button>
+            <button><i class="fa fa-comments"></i> Comments({{post.comment}})</button>
+            <button><i class="fa fa-share-alt"></i> Share({{post.share}})</button>
+        </div>
+        <button class="info"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
+        <img src={{post.logo}} class="logo" alt="">
     </div>
-    <button class="info"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
-    <img src={{post.logo}} class="logo" alt="">
+    <!-- <div class="add-post">
+<button  [routerLink]="['/home/add']"><img src="../../../../assets/addIcon.png" width="20px"></button>
+</div> -->
+
+
+<div class="add-post">
+    <button type="button" class="btn btn-success" style="border-radius: 100%"  data-toggle="modal" data-target="#addPostModal">
+        <i class="fa fa-plus"></i>
+      </button>
+</div>
+
+  <div class="modal fade" id="addPostModal" tabindex="-1" role="dialog" aria-labelledby="addPostModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addPostModalLabel">Add Post</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="addPostForm">
+                <input class="form-control" type="text" name="heading" formControlName="heading"
+                    placeholder="Heading for Post">
+                <br>
+                <label for="photo">Photo/Message</label>
+                <select class="form-control" name="postType" formControlName="postType">
+                    <option value="photo">Photo</option>
+                    <option value="message">Message</option>
+                </select>
+                <br>
+                <input class="form-control" *ngIf="postType == 'photo'" type="text" formControlName="photoUrl"
+                    placeholder="Enter Image Url">
+                <br>
+                <input class="form-control" *ngIf="postType == 'photo'" type="text" name="caption"
+                    formControlName="caption" placeholder="Enter caption">
+                <textarea class="form-control" *ngIf="postType == 'message'" type="textArea"
+                    formControlName="message" placeholder="Enter message" cols="40" rows="5"></textarea>
+                <br>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" (click)="addPost()" class="btn btn-primary">Go Ahead</button>
+        </div>
+      </div>
     </div>
+  </div>
+
+
+
+
+
+
+
+
 </div>

@@ -1,6 +1,15 @@
 
 <div class="parent">
     <div class="photo-container" *ngFor="let src of srcs">
-        <img src={{src.value}} alt="There is supposed to be an image">
+        <img src={{src.value}} alt="There is supposed to be an image" (click)="enlargeImage(src.value)" data-toggle="modal" data-target="#exampleModal">
     </div>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+
+          <div class="modal-content">
+
+                <img src={{current}} width="800px" alt="There is supposed to be an image">
+          </div>
+        </div>
+      </div>
 </div>

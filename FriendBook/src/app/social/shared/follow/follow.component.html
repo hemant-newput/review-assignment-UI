@@ -3,8 +3,8 @@
         WHO TO FOLLOW
         <hr>
     </div>
-    <div class="container" *ngFor="let person of suggetions,index as i ">
-        <div class="person">
+    <div class="container" >
+        <div class="person"*ngFor="let person of suggetions,index as i ">
             <img src='../../../../assets/loginAvatar.png' alt="">
             <div class="person-details">
             <p style="font-weight: bold;">{{person.name}}</p>

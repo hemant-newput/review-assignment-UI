@@ -1,49 +1,59 @@
-.parent{
-
-    .basic{
-        margin-top: 20px;
-         background-color: white;
-        position: relative;
-        .heading{
-
-            width: 80%;
-            padding: 20px 30px;
-            button{
-                position: absolute;
-                right: 10px;
-            }
-        }
+.parent {
+	input:disabled {
+		background-color: white;
+        border: 0px;
+	}
+    label{
+        font-weight: bold;
     }
-    .work{
-        position: relative;
-        background-color: white;
-        .heading{
+	.basic {
+		margin-top: 20px;
+        min-height: 360px;
+		background-color: white;
+		position: relative;
+		.heading {
+			width: 80%;
+			padding: 20px 40px 5px 40px;
+			.btn-primary {
+				position: absolute;
+				right: 10px;
+                top: 0px;
 
-            padding: 20px 30px;
-        }
-    }
-    .wideRule{
-        background-color: rgb(197, 194, 194);
-        height: 3px;
-        margin: 20px;
-    }
-    table{
-        width: 50%;
+			}
+		}
+	}
+	.work {
+		position: relative;
+        min-height: 260px;
+		background-color: white;
+		.heading {
+			padding: 20px 40px 5px 40px;
+		}
+	}
+	.wideRule {
+		background-color: rgb(197, 194, 194);
+		height: 3px;
+		margin: 20px;
+	}
 
-    td{
-        width: 50%;
-        padding: 10px;
+	.btn-primary {
+		position: absolute;
+		right: 25px;
+		top: 25px;
+	}
+	.basic-info-form {
+		margin: 0px 40px;
+	}
+	.btn-warning {
+		text-align: center;
+		position: static;
+		margin: 20px 40px;
+	}
+    .edit{
+        top:4%;
+    }
+    .submitbtns{
 
-    }
-    th{
-        width: 50%;
-        padding: 10px 30px;
-    }
-    }
-    button{
-     position: absolute;
-     right: 25px;
-     top: 25px;
-
+        margin: 0px auto;
     }
 }

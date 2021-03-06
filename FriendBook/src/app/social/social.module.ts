@@ -12,15 +12,27 @@ import { RouterModule } from '@angular/router';
 import { PostsComponent } from './shared/posts/posts.component';
 import { AboutComponent } from './shared/about/about.component';
 import { FriendListComponent } from './shared/friend-list/friend-list.component';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [HomePageComponent, ProfileComponent, NavBarComponent, FriendsComponent, FollowComponent, TimelineComponent, PhotosComponent, PostsComponent, AboutComponent, FriendListComponent],
+  declarations: [
+    HomePageComponent,
+    ProfileComponent,
+    NavBarComponent,
+    FriendsComponent,
+    FollowComponent,
+    TimelineComponent,
+    PhotosComponent,
+    PostsComponent,
+    AboutComponent,
+    FriendListComponent,
+  ],
   imports: [
     CommonModule,
     SocialRoutingModule,
-    RouterModule
-  ]
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
-export class SocialModule { }
+export class SocialModule {}

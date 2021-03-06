@@ -14,7 +14,7 @@ const routes: Routes = [
     {path:'posts',component:PostsComponent},
     {path:'about',component:AboutComponent},
     {path:'photos',component:PhotosComponent},
-    {path:'friends',component:FriendListComponent}
+    {path:'friends',component:FriendListComponent},
   ] },
 
 ];
