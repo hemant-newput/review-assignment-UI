@@ -1,38 +1,51 @@
-.parent{
-    height: 55px;
-    width: 100%;
-    background-color: rgb(0, 102, 255);
-    .logo{
-        float: left;
-        p{
-            font-size: larger;
-            font-family: 'Abril Fatface';
-            padding: 15px 50px;
-            color: white;
-        }
+.navbar{
+    height: 50px;
+    padding: 0px;
+    justify-content: space-between;
+    background-color:  rgb(0, 102, 255);
+}
+.navbar-brand{
+    margin-left: 2%;
+    font-family: "Abril fatface";
+    color: white;
+}
+.icon{
+    a{
+        color: white;
     }
-    .icons{
-        color:white;
-        display: flex;
-        flex-direction: row;
+.dropdown-menu{
+    // position: relative;
+    //     right: 100px
+    a{
+        color: black;        
+    }
+}
+}
+
+@media (max-width :1000px)
+{
+    .navbar{
+        height: 50px;
+        padding: 0px;
+        justify-content: space-between;
+        background-color:  rgb(0, 102, 255);
+    }
+    .navbar-brand{
+        margin-left: 4%;
+        font-family: "Abril fatface";
+        font-size: medium;
+        color: white;
+    }
+    .navbar-right
+    {
         float: right;
-        img{
-            width: 40px;
-        }
-        ul{
-            list-style-type: none;
-        }
-        li{
-            display: inline;
-            margin-left: 20px;
-            margin-top: 5px;
-            button{
-                background-color: transparent;
-                border: 0px;
-                margin:10px;
-                color: white;
-                font-size: larger;
-            }
-        }
+        padding: 0px;
+        height: 50px;
+    
     }
+    .icon{
+        width: 20%;
+        
+    }
+       
 }

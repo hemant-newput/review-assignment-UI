@@ -3,7 +3,6 @@
 
         <img src="../assets/loginAvatar.png" width="180px" alt="There is supposed to be an image here">
         <form [formGroup]="loginForm">
-            {{loginForm.value | json}}
             <input type="text" class="input-text" formControlName="username" name="username"
                 placeholder="Enter Username">
             <br>
@@ -13,4 +12,9 @@
             <button name="button" (click)="submitForm()" class="btn custom-btn">Login</button>
         </form>
         <button class="forget">Forget Password</button>
+        <br>
+        <div class="signUp">
+            <a routerLink="signUp">Dont Have an Account Sign Up Now</a>
+        </div>
+        
     </div>

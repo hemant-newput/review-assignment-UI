@@ -13,15 +13,14 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {
     document.title = 'Sign Up';
     this.signUpForm = this.formBuilder.group({
-      fullName:['', Validators.required],
-      email:['', Validators.required],
-      phone:['', Validators.required],
-      occupation:['', Validators.required],
-      dob:['', Validators.required],
-      address:['', Validators.required],
-      password:['', Validators.required],
-      confirmPassword:['', Validators.required]
+      fullName: ['', Validators.required],
+      email: ['', Validators.required],
+      phone: ['', Validators.required],
+      occupation: ['', Validators.required],
+      dob: ['', Validators.required],
+      address: ['', Validators.required],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
     })
   }
-
 }

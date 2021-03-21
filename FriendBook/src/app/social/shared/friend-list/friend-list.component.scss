@@ -37,3 +37,51 @@
         }
     }
 }
+
+@media (max-width :1000px)
+{
+    .parent{
+
+        position: relative;
+        width: 100%;
+    
+        .person
+        {   
+            height: 140px;
+            display: inline-block;
+            position: relative;
+            width: 94%;
+            margin: 10px;
+            // width: 100%;
+            // margin: 0px;
+            background-color: white;
+        img{
+            float: left;
+            height: 120px;
+            width: 120px;
+            margin: 10px 35px 10px 20px;
+        }
+        .info
+        {
+            position: absolute;
+            right: 5px;
+            border: 0px;
+            background-color: inherit;
+            top:5px;
+        }
+        }
+        .data{
+            padding: 40px 5px;
+            p{
+                font-size: small;
+                padding: 0px;
+                margin: 0px;
+            }
+            button{
+                margin: 10px;
+                border-radius: 5px;
+            }
+        }
+    }
+       
+}

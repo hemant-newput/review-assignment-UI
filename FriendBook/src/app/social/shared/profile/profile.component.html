@@ -1,12 +1,19 @@
 
 <div class="parent">
-
-<img src="../../../../assets/profile.jpg" alt="">
+<a>
+    <img src="../../../../assets/profile.jpg" alt="" data-toggle="modal" data-target="#profileImageModal">
+</a>
+<div class="modal fade" id="profileImageModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+            <img src="../../../../assets/profile.jpg" width="800px" alt="There is supposed to be an image">
+      </div>
+    </div>
+  </div>
 
 <div class="data">
 <div class="nameAndPos">
     {{name}}
-
     <p>{{position}}</p>
 </div>
 
@@ -25,6 +32,6 @@
     Activites
 </div>
 </div>
-<button class=" btn-sm btn-light addFriendButton" *ngIf="internalAccess"><i class="fa fa-user"></i> ADD AS FRIEND</button>
+<button class=" btn-sm btn-light addFriendButton" *ngIf="!internalAccess"><i class="fa fa-user"></i> ADD AS FRIEND</button>
 </div>
 </div>

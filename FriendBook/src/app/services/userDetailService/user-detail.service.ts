@@ -1,30 +1,35 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
+import { SharedService } from '../sharedServices/shared.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserDetailService {
-  constructor() {}
-  
+  constructor(private sharedService: SharedService) { }
+  public UserData = {
+    name: 'Hemant Shrivastava',
+    gender: 'Male',
+    dob: '6 Sep 1998',
+    married: 'Unmarried',
+    location: 'Ayodhya',
+    occupation: 'Software Developer',
+    skills: 'Javascript',
+    job: 'Newput InfoTech',
+  };
   getUserData() {
-    const UserData = {
-      name: 'Hemant Kumar Shrivastava',
-      gender: 'Male',
-      dob: '6 Sep 1998',
-      married: 'Unmarried',
-      location: 'Ayodhya',
-      occupation: 'Software Developer',
-      skills: 'Javascript',
-      job: 'Newput InfoTech',
-    };
 
-    return of(UserData);
+    this.sharedService.sendMessage(this.UserData);
+    return of(this.UserData);
   }
   updateBasicDetails(data) {
+    this.UserData.name = data.name;
+    this.sharedService.sendMessage({UserData: this.UserData});
     alert('Hii i am from service : ' + JSON.stringify(data));
   }
   updateWorkDetails(data) {
+    this.UserData.occupation = data.occupation;
+    this.sharedService.sendMessage({UserData: this.UserData});
     alert('Hii i am from service : ' + JSON.stringify(data));
   }
 

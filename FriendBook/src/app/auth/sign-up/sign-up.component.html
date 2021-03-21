@@ -3,40 +3,40 @@
 
         <img src="../assets/avatar.png" width="120px" alt="There is supposed to be an image here">
 
-        <form [formGroup]="signUpForm">
-            <i class="fa fa-user"></i>
-            <input type="text" class="input-text" formControlName="fullName" name="fullName"
-                placeholder="Enter Your Full Name">
-            <i class="fa fa-envelope"></i>
-            <input type="text" class="input-text" formControlName="email" name="email"
-                placeholder="Enter your Email-ID">
-            <br>
-            <i class="fa fa-mobile" style="font-size: 25px;"></i>
-            <input type="text" class="input-text" formControlName="phone" name="phone"
-                placeholder="Enter your Mobile Number">
-            <i class="fa fa-laptop"></i>
-            <input type="text" class="input-text" formControlName="occupation" name="occupation"
-                placeholder="Enter your Occupation">
-            <br>
-            <i class="fa fa-calendar"></i>
-
-            <input type="date" class="input-text" formControlName="dob" name="dob" placeholder="Enter your DOB">
-            <i class="fa fa-home"></i>
-            <input type="text" class="input-text" formControlName="address" name="address"
-                placeholder="Enter your Address">
-            <br>
-            <i class="fa fa-key"></i>
-            <input type="password" class="input-text" name="password" formControlName="password"
-                placeholder="Enter Password">
-            <i class="fa fa-key"></i>
-            <input type="password" class="input-text" name="confirmPassword" formControlName="confirmPassword"
-                placeholder="Confirm Password">
-            <br>
-            <button name="button" onclick="submitForm()" class="btn custom-btn">Sign Up</button>
-        </form>
+        <div class="signUpForm">
+            <form [formGroup]="signUpForm">
+                <i class="fa fa-user"></i>
+                <input type="text" class="input-text" formControlName="fullName" name="fullName"
+                    placeholder="Enter Your Full Name">
+                <i class="fa fa-envelope"></i>
+                <input type="text" class="input-text" formControlName="email" name="email"
+                    placeholder="Enter your Email-ID">
+                <br>
+                <i class="fa fa-mobile" style="font-size: 25px;"></i>
+                <input type="text" class="input-text" formControlName="phone" name="phone"
+                    placeholder="Enter your Mobile Number">
+                <i class="fa fa-laptop"></i>
+                <input type="text" class="input-text" formControlName="occupation" name="occupation"
+                    placeholder="Enter your Occupation">
+                <br>
+                <i class="fa fa-calendar"></i>
+    
+                <input type="date" class="input-text" formControlName="dob" name="dob" placeholder="Enter your DOB">
+                <i class="fa fa-home"></i>
+                <input type="text" class="input-text" formControlName="address" name="address"
+                    placeholder="Enter your Address">
+                <br>
+                <i class="fa fa-key"></i>
+                <input type="password" class="input-text" name="password" formControlName="password"
+                    placeholder="Enter Password">
+                <i class="fa fa-key"></i>
+                <input type="password" class="input-text" name="confirmPassword" formControlName="confirmPassword"
+                    placeholder="Confirm Password">
+                <br>
+                <button name="button" onclick="submitForm()" class="btn custom-btn">Sign Up</button>
+            </form>
+        </div>
         <div class="login">
             Already Have an Account <a routerLink='/auth'>Sign In</a>
         </div>
-
-        {{signUpForm.value | json}}
-    </div>
+    </div> 

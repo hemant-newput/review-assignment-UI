@@ -33,7 +33,7 @@ export class AboutComponent implements OnInit {
       location: [''],
     });
     this.basicForm.valueChanges.subscribe((data) => {
-      console.log(this.basicForm.value);
+      // console.log(this.basicForm.value);
     });
     this.basicForm.disable();
   }
@@ -44,13 +44,13 @@ export class AboutComponent implements OnInit {
       job: [''],
     });
     this.workForm.valueChanges.subscribe((data) => {
-      console.log(this.workForm.value);
+      // console.log(this.workForm.value);
     });
     this.workForm.disable();
   }
   populateForms() {
     this.userDetailService.getUserData().subscribe((userData) => {
-      console.log(userData);
+      // console.log(userData);
       this.basicForm.patchValue({
         name: userData.name,
         gender: userData.gender,

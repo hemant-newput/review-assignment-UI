@@ -1,7 +1,6 @@
 <div class="parent">
-    <app-nav-bar></app-nav-bar>
+    <app-nav-bar [name]="name"></app-nav-bar>
     <div class="wallpaper">
-        <!-- <p>{{pageName}}</p> -->
         <div class="image">
             <img src="../../../assets/hero-img.jpg" alt="">
         </div>
@@ -24,13 +23,11 @@
         <app-follow [suggetions]='suggetions'></app-follow>
     </div>
 
-    <div class="friends">
+    <!-- <div class="friends">
         <app-friends></app-friends>
-    </div>
+    </div> -->
 
 </div>
-
-
     <div class="timeline right-parent">
         <app-timeline>
             <router-outlet name="timelineRouter"></router-outlet>

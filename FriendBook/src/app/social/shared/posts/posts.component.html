@@ -4,26 +4,19 @@
             <strong>{{post.name}} posted on your Timeline</strong>
             <p>50 mins ago</p>
         </div>
-        <div class="image-container" style="background-image: url({{post.image}});">
-            <!-- <img src={{post.image}} alt=""> -->
+        <div *ngIf="post.image" class="image-container" style="background-image: url({{post.image}});">
         </div>
         <div class="data">
-            <p><strong>{{post.name}} posted on your Timeline</strong></p>
-            <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium veniam hic dolores debitis, quae
-                aliquam inventore porro iusto temporibus qui incidunt deleniti nobis laboriosam nulla id eius corrupti
-                repudiandae quo! </p>
+            <p><strong>{{post.caption}}</strong></p>
+            <p> {{post.description}} </p>
             <hr>
-            <button><i class="fa fa-thumbs-up"></i> Like({{post.like}})</button>
-            <button><i class="fa fa-comments"></i> Comments({{post.comment}})</button>
-            <button><i class="fa fa-share-alt"></i> Share({{post.share}})</button>
+            <button class="likeBtn" (click)='likePost(post)'><i class="fa fa-thumbs-up"></i> Like({{post.like}})</button>
+            <button class="shareBtn"(click)='sharePost(post)'><i class="fa fa-share-alt"></i> Share({{post.share}})</button>
         </div>
         <button class="info"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
         <img src={{post.logo}} class="logo" alt="">
     </div>
-    <!-- <div class="add-post">
-<button  [routerLink]="['/home/add']"><img src="../../../../assets/addIcon.png" width="20px"></button>
-</div> -->
-
+  
 
 <div class="add-post">
     <button type="button" class="btn btn-success" style="border-radius: 100%"  data-toggle="modal" data-target="#addPostModal">

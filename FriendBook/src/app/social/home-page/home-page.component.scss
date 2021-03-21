@@ -1,30 +1,58 @@
-.parent{
-    background-color: rgb(207, 207, 207);
+.parent {
+    background-color: rgb(228, 227, 227);
     min-height: 1500px;
-    .left-parent{
+    .left-parent {
         width: 20%;
         display: inline-block;
         position: absolute;
         top: 250px;
     }
-    .right-parent{
+    .right-parent {
         width: 76%;
         margin-left: 24%;
         display: inline-block;
     }
 }
-.wallpaper
-{
+.wallpaper {
     width: 100%;
-    .image{
+    .image {
         position: relative;
         margin: 0px;
 
-        img{
+        img {
             width: 100%;
             display: block;
             margin: 0px auto;
-            // height: 350px;
         }
+    }
+}
+
+@media (max-width: 1000px) {
+    .parent {
+        background-color: rgb(228, 227, 227);
+        min-height: 500px;
+        margin: 0px;
+        .left-parent {
+            top: 0px;
+            margin: 0px;
+            display: block;
+            position: unset;
+            float: none;
+            width: 100%;
+        }
+        .right-parent {
+            margin: 0px;
+            float: none;
+            width: 100%;
+            margin-left: 0px;
+        }
+    
+    }
+
+    .follows {
+        display: none;
+    }
+    .friends {
+        display: none;
     }
 }

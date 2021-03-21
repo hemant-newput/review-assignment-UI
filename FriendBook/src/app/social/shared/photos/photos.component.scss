@@ -11,3 +11,27 @@
         }
     }
 }
+
+@media (max-width :1000px)
+{
+    .parent{
+        margin-top: 0px;
+        padding: 20px;
+        background-color: white;
+        .photo-container{
+            display: inline-block;
+            width: 100%;
+            img{
+                padding: 2%;
+                width: 100%;
+            }
+        }
+        .modal-content
+        {
+            img{
+                width: 400px;
+                padding: 0%;
+            }
+        }
+    }   
+}

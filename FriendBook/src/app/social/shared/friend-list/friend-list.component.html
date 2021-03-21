@@ -1,25 +1,11 @@
 <div class="parent">
-        <div class="person" *ngFor="let friend of friendList,index as i ">
-            <img src={{friend.image}} height="90%" alt="">
-            <div class="data">
-            <p><strong>{{friend.name}}</strong></p>
-            <p>{{friend.position}} at {{friend.company}}</p>
-            <button class="btn-xs btn-danger" (click)="Unfriend(friend)" *ngIf="friend.status">Unfollow</button>
-            <button class="btn-xs btn-primary" (click)="Addfriend(friend)" *ngIf="!friend.status">Follow</button>
-        </div>
-        <!-- <div class="dropdown info">
-            <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <button class="dropdown-item" (click)="Unfriend(i)">Unfriend</button>
-            </div>
-          </div> -->
-
-
-        </div>
-
-
-
-
+  <div class="person" *ngFor="let friend of friendList,index as i ">
+    <img src={{friend.image}} height="90%" alt="">
+    <div class="data">
+      <p><strong>{{friend.name}}</strong></p>
+      <p>{{friend.position}} at {{friend.company}}</p>
+      <button class="btn-xs btn-danger" (click)="Unfriend(friend)" *ngIf="friend.status">Unfollow</button>
+      <button class="btn-xs btn-primary" (click)="Addfriend(friend)" *ngIf="!friend.status">Follow</button>
     </div>
+  </div>
+</div>
