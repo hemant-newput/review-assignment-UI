@@ -1,5 +1,5 @@
 <div class="parent" id="parent">
-    <div class="login-form">
+    <div class="login-form container">
 
         <img src="../assets/avatar.png" width="120px" alt="There is supposed to be an image here">
 
@@ -33,7 +33,7 @@
                 <input type="password" class="input-text" name="confirmPassword" formControlName="confirmPassword"
                     placeholder="Confirm Password">
                 <br>
-                <button name="button" onclick="submitForm()" class="btn custom-btn">Sign Up</button>
+                <button name="button" (click)="submitForm()" class="btn custom-btn">Sign Up</button>
             </form>
         </div>
         <div class="login">

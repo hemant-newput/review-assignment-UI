@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-friends',
@@ -7,18 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FriendsComponent implements OnInit {
 
-  constructor() { }
-public images = [
-  {image:'../../../../assets/avatar.png'},
-  {image:'../../../../assets/avatar.png'},
-  {image:'../../../../assets/avatar.png'},
-  {image:'../../../../assets/avatar.png'},
-  {image:'../../../../assets/avatar.png'},
-  {image:'../../../../assets/avatar.png'},
-  {image:'../../../../assets/avatar.png'},
-  {image:'../../../../assets/avatar.png'},
- ];
+  constructor(private elementRef: ElementRef) { }
   ngOnInit(): void {
   }
 
+  ngAfterViewChecked(): void {
+    const s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src = '../../../assets/watcher.js';
+    this.elementRef.nativeElement.appendChild(s);
+  }
 }

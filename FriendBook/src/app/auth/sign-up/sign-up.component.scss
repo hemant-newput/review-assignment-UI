@@ -6,13 +6,13 @@
     background-color: transparent;
     width: 1200px;
     .signUpForm{
-        background-color: rgb(0, 0, 0,0.6);
+        background-color: rgba(0, 0, 0,0.6);
         padding-top: 50px;
     }
     }
     .input-text{
         margin: 10px 30px;
-        padding: 15px 20px;
+        padding: 10px 20px;
         line-height: 20px;
         width: 400px;
         background-color:rgb(255, 255, 255);
@@ -25,8 +25,8 @@
         margin: 50px;
     }
     .parent{
-        // background-image:linear-gradient(to bottom right, #FD8469, #84DBFF);
-        background-image:linear-gradient(to bottom right, rgb(227, 73, 233), blue,);
+        background-image:linear-gradient(to bottom right, #FD8469, #84DBFF);
+        // background-image:linear-gradient(to bottom right, rgb(227, 73, 233), blue,);
         background-size: cover;
         position: relative;
         height: 100%;
@@ -37,17 +37,16 @@
     button {
         margin: 40px;
         padding: 10px 40px;
-        background-image: linear-gradient(to bottom right, blue, rgb(227, 73, 233));;
+        background-color: rgba(124, 123, 123, 0.281);
         color: white
       }
       button:hover{
-          box-shadow: 1px 1px 1px 1px white;
           color:white;
           font-weight: bolder;
       }
 .login{
     padding-top: 30px;
-    color: white;
+    color: black;
     a{
         color: inherit;
     }

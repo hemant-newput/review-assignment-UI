@@ -1,0 +1,16 @@
+.parent {
+    width: 100%;
+    height: 500px;
+    background-color: #f4f6f8;
+    p{
+        text-align: center;
+        font-family: 'Abril Fatface';
+    }
+    .imageHolder {
+        text-align: center;
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    }
+}

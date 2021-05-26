@@ -2,7 +2,7 @@
     <app-nav-bar [name]="name"></app-nav-bar>
     <div class="wallpaper">
         <div class="image">
-            <img src="../../../assets/hero-img.jpg" alt="">
+            <img src="../../../assets/cover3.jpg" alt="">
         </div>
     </div>
     <div class="left-parent">
@@ -15,15 +15,18 @@
             [following]='following'
             [followers]='followers'
             [activities]='activities'
+            [profileImage]='profileImage'
+            [isLoading] = 'isLoading'
+            [friendID] ='friendID'
         >
         </app-profile>
     </div>
 
     <div class="follows">
-        <app-follow [suggetions]='suggetions'></app-follow>
+        <app-follow></app-follow>
     </div>
-
-    <!-- <div class="friends">
+<!-- 
+    <div class="friends">
         <app-friends></app-friends>
     </div> -->
 
@@ -34,4 +37,9 @@
         </app-timeline>
 
     </div>
+</div>
+
+
+<div class="footer">
+    <app-footer></app-footer>
 </div>

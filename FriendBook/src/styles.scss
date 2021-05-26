@@ -1,5 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
-html,body{
-    height: 100%;
 
+html,
+body {
+    height: 100%;
+}
+.overlay-container {
+    #toast-container {
+        padding: 0px;
+    }
+}
+
+.toast-message {
+    background-color: transparent !important;
+    padding: 15px;
+}
+
+#toast-container > div {
+    opacity: 1;
+}
+.toast {
+    font-size: initial !important;
+    border: initial !important;
+    backdrop-filter: blur(0) !important;
+}
+
+html{
+    ::-webkit-scrollbar {
+        display: none;
+    }
 }

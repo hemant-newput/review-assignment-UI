@@ -1,30 +1,37 @@
-<div class="parent">
-    <div class="post" *ngFor="let post of posts ">
-        <div class="name">
-            <strong>{{post.name}} posted on your Timeline</strong>
-            <p>50 mins ago</p>
-        </div>
-        <div *ngIf="post.image" class="image-container" style="background-image: url({{post.image}});">
-        </div>
-        <div class="data">
-            <p><strong>{{post.caption}}</strong></p>
-            <p> {{post.description}} </p>
-            <hr>
-            <button class="likeBtn" (click)='likePost(post)'><i class="fa fa-thumbs-up"></i> Like({{post.like}})</button>
-            <button class="shareBtn"(click)='sharePost(post)'><i class="fa fa-share-alt"></i> Share({{post.share}})</button>
-        </div>
-        <button class="info"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
-        <img src={{post.logo}} class="logo" alt="">
+<div class="parent" *ngIf="posts && !isLoading">
+  <div class="post" *ngFor="let post of posts ">
+    <div class="name">
+      <strong>{{post.name}} posted on your Timeline</strong>
+      <p>{{formatDate(post.updatedAt)}}</p>
     </div>
-  
+    <div *ngIf="post.image_url" class="image-container" style="background-image: url({{post.image_url}});"
+      data-toggle="modal" data-target="#postImageModal" (click)="enlargePost(post.image_url)">
+    </div>
+    <div class="data">
+      <p><strong>{{post.caption}}</strong></p>
+      <p> {{post.description}} </p>
+      <hr>
+      <button class="likeBtn" (click)='likePost(post)' [ngClass]="post.userLiked ? 'postLiked' : 'postDisliked'"><i
+          class="fa fa-thumbs-up"></i> Like( {{post.likes}} )</button>
+      <button class="shareBtn" (click)='saveSelectedPost(post)' [ngClass]="post.userShared ? 'postShared' : 'postDisliked'" data-toggle="modal" data-target="#sharePostModal"><i
+          class="fa fa-share-alt"></i> Share  {{post.shares}}</button>
+    </div>
+    <button class="info"><i class="fa fa-trash" (click)="deletePost(post)" aria-hidden="true"></i></button>
+    <img (click)="swapTimeline(post)" src={{post.profileImage}} class="logo" alt="">
+  </div>
+  <div *ngIf=!posts.length>
+    <app-empty-state></app-empty-state>
+  </div>
 
-<div class="add-post">
-    <button type="button" class="btn btn-success" style="border-radius: 100%"  data-toggle="modal" data-target="#addPostModal">
-        <i class="fa fa-plus"></i>
-      </button>
-</div>
+  <div class="add-post" *ngIf="internalAccess">
+    <button type="button" class="btn btn-success" style="border-radius: 100%" data-toggle="modal"
+      data-target="#addPostModal">
+      <i class="fa fa-plus"></i>
+    </button>
+  </div>
 
-  <div class="modal fade" id="addPostModal" tabindex="-1" role="dialog" aria-labelledby="addPostModalLabel" aria-hidden="true">
+  <div class="modal fade" id="addPostModal" tabindex="-1" role="dialog" aria-labelledby="addPostModalLabel"
+    #addPostModal aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -34,26 +41,26 @@
           </button>
         </div>
         <div class="modal-body">
-            <form [formGroup]="addPostForm">
-                <input class="form-control" type="text" name="heading" formControlName="heading"
-                    placeholder="Heading for Post">
-                <br>
-                <label for="photo">Photo/Message</label>
-                <select class="form-control" name="postType" formControlName="postType">
-                    <option value="photo">Photo</option>
-                    <option value="message">Message</option>
-                </select>
-                <br>
-                <input class="form-control" *ngIf="postType == 'photo'" type="text" formControlName="photoUrl"
-                    placeholder="Enter Image Url">
-                <br>
-                <input class="form-control" *ngIf="postType == 'photo'" type="text" name="caption"
-                    formControlName="caption" placeholder="Enter caption">
-                <textarea class="form-control" *ngIf="postType == 'message'" type="textArea"
-                    formControlName="message" placeholder="Enter message" cols="40" rows="5"></textarea>
-                <br>
+          <form [formGroup]="addPostForm">
+            <input class="form-control" type="text" name="heading" formControlName="heading"
+              placeholder="Heading for Post">
+            <br>
+            <label for="photo">Photo/Message</label>
+            <select class="form-control" name="postType" formControlName="postType">
+              <option value="photo">Photo</option>
+              <option value="message">Message</option>
+            </select>
+            <br>
+            <input class="form-control" *ngIf="postType == 'photo'" type="text" formControlName="photoUrl"
+              placeholder="Enter Image Url">
+            <br>
+            <input class="form-control" *ngIf="postType == 'photo'" type="text" name="caption" formControlName="caption"
+              placeholder="Enter caption">
+            <textarea class="form-control" *ngIf="postType == 'message'" type="textArea" formControlName="message"
+              placeholder="Enter message" cols="40" rows="5"></textarea>
+            <br>
 
-            </form>
+          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -66,8 +73,45 @@
 
 
 
+  <div class="modal fade" id="sharePostModal" tabindex="-1" role="dialog" aria-labelledby="sharePostModal"
+    #sharePostModal aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div (click)="sharePost('whatsapp')" class="shareOption">
+            <img src="../../../../assets/whatsapp.png" alt="">
+            <span>Share on whatsapp</span>
+          </div>
+          <div (click)="sharePost('friendbook')" class="shareOption">
+            <img src="../../../../assets/friendbook.png" alt="">
+            <span>Share on FriendBook</span>
+          </div>
+          <div (click)="sharePost('clipboard')" class="shareOption">
+            <img src="../../../../assets/copy.jpg" alt="">
+            <span>Copy to ClipBoard</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<div class="modal fade" id="postImageModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <img src="{{selectedImage}}" width="800px" alt="There is supposed to be an image">
+    </div>
+  </div>
+</div>
 
-
-
+<div class="loader" *ngIf="isLoading">
+  <app-loader
+[size] = "xl"
+[speed] = "high"
+></app-loader>
 </div>

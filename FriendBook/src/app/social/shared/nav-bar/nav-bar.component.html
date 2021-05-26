@@ -3,12 +3,14 @@
     <div class="navbar icon">
       <!-- <ul class="navbar navbar-right navbar-nav">
         <li> -->
+          <a (click)=goToHome() class="navBtn" ><i class="fa fa-home"></i></a>
+          <a (click)=toggleTalkback() class="navBtn"><i class="fa fa-headphones"></i></a>
+          <a (click)="goToHome()" class="userName">{{name}}</a>
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <a><img src="../../../../assets/avatar.png" style="width: 40px;" alt=""></a>
-              <!-- {{name}} -->
           </a>
           <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="auth">LogOut</a>
+            <a class="dropdown-item" (click)="logout()" href="auth">LogOut</a>
           </div>
         <!-- </li>
       </ul> -->

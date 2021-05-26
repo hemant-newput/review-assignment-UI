@@ -1,0 +1,13 @@
+.footer {
+    .container {
+        background-color: #e4e3e3;
+    }
+    .btn-floating {
+        border-radius: 100% !important;
+    }
+}
+.rotate {
+    &:hover {
+        animation: fa-spin 2s infinite linear;
+    }
+}

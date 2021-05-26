@@ -1,52 +1,54 @@
-.parent{
-
+.parent {
     position: relative;
     width: 100%;
 
-    .person
-    {   width: 47%;
+    .person {
+        width: 48%;
         height: 170px;
         display: inline-block;
         position: relative;
-        margin: 15px;
+        margin: 11px;
         background-color: white;
-    img{
-        float: left;
-        width: 160px;
-        margin: 10px 15px;
+        &:hover {
+            box-shadow: 1px 0px 10px 0px rgb(177, 175, 175);
+        }
+        img {
+            float: left;
+            width: 160px;
+            margin: 10px 15px;
+        }
+        .info {
+            position: absolute;
+            right: 5px;
+            border: 0px;
+            background-color: inherit;
+            top: 5px;
+        }
     }
-    .info
-    {
-        position: absolute;
-        right: 5px;
-        border: 0px;
-        background-color: inherit;
-        top:5px;
-    }
-    }
-    .data{
-        padding: 40px 5px;
-        p{
+    .data {
+        padding: 45px 5px;
+        p {
+            cursor: pointer;
             font-size: larger;
             padding: 0px;
             margin: 0px;
         }
-        button{
+        button {
+            cursor: pointer;
             margin: 10px;
-            border-radius: 5px;
+            z-index: 100;
+            padding: 0px 10px;
+            border-radius: 10px;
         }
     }
 }
 
-@media (max-width :1000px)
-{
-    .parent{
-
+@media (max-width: 1000px) {
+    .parent {
         position: relative;
         width: 100%;
-    
-        .person
-        {   
+
+        .person {
             height: 140px;
             display: inline-block;
             position: relative;
@@ -55,33 +57,31 @@
             // width: 100%;
             // margin: 0px;
             background-color: white;
-        img{
-            float: left;
-            height: 120px;
-            width: 120px;
-            margin: 10px 35px 10px 20px;
+            img {
+                float: left;
+                height: 120px;
+                width: 120px;
+                margin: 10px 35px 10px 20px;
+            }
+            .info {
+                position: absolute;
+                right: 5px;
+                border: 0px;
+                background-color: inherit;
+                top: 5px;
+            }
         }
-        .info
-        {
-            position: absolute;
-            right: 5px;
-            border: 0px;
-            background-color: inherit;
-            top:5px;
-        }
-        }
-        .data{
+        .data {
             padding: 40px 5px;
-            p{
+            p {
                 font-size: small;
                 padding: 0px;
                 margin: 0px;
             }
-            button{
+            button {
                 margin: 10px;
                 border-radius: 5px;
             }
         }
     }
-       
 }

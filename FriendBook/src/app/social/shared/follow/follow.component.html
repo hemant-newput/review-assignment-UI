@@ -7,7 +7,7 @@
         <div class="person"*ngFor="let person of suggetions,index as i ">
             <img src='../../../../assets/loginAvatar.png' alt="">
             <div class="person-details">
-            <p style="font-weight: bold;">{{person.name}}</p>
+            <p style="font-weight: bold;"(click)="fetchFriendProfile(person)" class="name">{{person.name}}</p>
             <p>{{person.position}}</p>
             </div>
         </div>

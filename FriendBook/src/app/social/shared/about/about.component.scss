@@ -43,16 +43,20 @@
 	.basic-info-form {
 		margin: 0px 40px;
 	}
+	.submitbtns{
+		text-align: center;
+		margin: 0px auto;
+		button{
+			margin: 15px;
+		}
+	}
 	.btn-warning {
 		text-align: center;
-		position: static;
-		margin: 20px 40px;
+		// position: static;
+		// margin: 20px 40px;
 	}
 	.edit {
 		top: 4%;
-	}
-	.submitbtns {
-		margin: 0px auto;
 	}
 }
 
@@ -113,8 +117,12 @@
 		.edit {
 			top: 4%;
 		}
-		.submitbtns {
+		.submitbtns{
+			text-align: center;
 			margin: 0px auto;
+			button{
+				margin: 5px;
+			}
 		}
 	}
 }

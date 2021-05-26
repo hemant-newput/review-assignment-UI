@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-timeline',
@@ -7,11 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./timeline.component.scss']
 })
 export class TimelineComponent implements OnInit {
-
-  constructor(private router:Router) { }
+  constructor() { }
 
   ngOnInit(): void {
-
   }
-
 }

@@ -1,14 +1,22 @@
+<div class="parent" *ngIf="srcs && !isLoading">
+  <div class="photo-container" *ngFor="let src of srcs">
+    <img src={{src.image_url}} alt="There is supposed to be an image" (click)="enlargeImage(src.image_url)"
+      data-toggle="modal" data-target="#exampleModal">
+  </div>
 
-<div class="parent">
-    <div class="photo-container" *ngFor="let src of srcs">
-        <img src={{src.value}} alt="There is supposed to be an image" (click)="enlargeImage(src.value)" data-toggle="modal" data-target="#exampleModal">
-    </div>
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-
-          <div class="modal-content">
-                <img src={{current}} width="800px" alt="There is supposed to be an image">
-          </div>
-        </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <img src={{current}} width="800px" alt="There is supposed to be an image">
       </div>
+    </div>
+  </div>
+
+  <div *ngIf="!srcs.length">
+    <app-empty-state></app-empty-state>
+  </div>
+</div>
+
+<div class="loader" *ngIf="isLoading">
+  <app-loader [size]="xl" [speed]="high"></app-loader>
 </div>

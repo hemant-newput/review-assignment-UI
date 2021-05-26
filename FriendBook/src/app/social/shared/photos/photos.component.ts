@@ -9,13 +9,20 @@ import { UserDetailService } from 'src/app/services/userDetailService/user-detai
 })
 export class PhotosComponent implements OnInit {
   public current: string;
-  constructor(private sharedService: SharedService ,private userDetailService:UserDetailService) {}
+  public isLoading: boolean;
+  constructor(private sharedService: SharedService, private userDetailService: UserDetailService) { }
   public srcs;
   ngOnInit(): void {
+    this.sharedService.speak(`Wanna see some photos`)
+    this.isLoading = true;
     this.sharedService.setTitle('Photos');
-    this.srcs = this.userDetailService.getUserPhotos();
+    const userID = localStorage.getItem('userID');
+    this.userDetailService.getUserPhotos(userID).subscribe((data) => {
+      this.srcs = data['data'];
+      this.isLoading = false;
+    });
   }
-  enlargeImage(image) {
+  enlargeImage(image): void {
     this.current = image;
   }
 }

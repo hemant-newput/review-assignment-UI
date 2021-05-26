@@ -29,7 +29,9 @@
             ],
             "styles": [
               "src/styles.scss",
-              "./node_modules/bootstrap/dist/css/bootstrap.css"
+              "node_modules/angular2-toaster/toaster.min.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
+              
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",
@@ -96,7 +98,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "./node_modules/bootstrap/dist/css/bootstrap.css"
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",

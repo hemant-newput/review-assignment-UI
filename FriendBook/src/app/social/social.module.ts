@@ -13,6 +13,9 @@ import { PostsComponent } from './shared/posts/posts.component';
 import { AboutComponent } from './shared/about/about.component';
 import { FriendListComponent } from './shared/friend-list/friend-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoaderComponent } from './loader/loader.component';
+import { EmptyStateComponent } from './shared/empty-state/empty-state.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PostsComponent,
     AboutComponent,
     FriendListComponent,
+    LoaderComponent,
+    EmptyStateComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,

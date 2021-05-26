@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { SharedService } from '../sharedServices/shared.service';
@@ -6,8 +7,9 @@ import { SharedService } from '../sharedServices/shared.service';
   providedIn: 'root',
 })
 export class UserDetailService {
-  constructor(private sharedService: SharedService) { }
-  public UserData = {
+  constructor(private sharedService: SharedService, private http: HttpClient) { }
+  public backendUrl = "https://friendbook-backend.herokuapp.com"
+  public UserData   = {
     name: 'Hemant Shrivastava',
     gender: 'Male',
     dob: '6 Sep 1998',
@@ -15,38 +17,29 @@ export class UserDetailService {
     location: 'Ayodhya',
     occupation: 'Software Developer',
     skills: 'Javascript',
-    job: 'Newput InfoTech',
+    jobCompany: 'Newput InfoTech',
   };
-  getUserData() {
-
-    this.sharedService.sendMessage(this.UserData);
-    return of(this.UserData);
+  getUserData(userID) {
+    const url = `${this.backendUrl}/home/${userID}/userData`;
+    return this.http.post<any>(url, { observe: 'response' });
   }
   updateBasicDetails(data) {
     this.UserData.name = data.name;
-    this.sharedService.sendMessage({UserData: this.UserData});
-    alert('Hii i am from service : ' + JSON.stringify(data));
+    this.sharedService.sendMessage({ UserData: this.UserData });
+    const url = '${this.backendUrl}/home/user/update';
+    data.type = 'basic';
+    return this.http.post<any>(url, data, { observe: 'response' });
   }
   updateWorkDetails(data) {
     this.UserData.occupation = data.occupation;
-    this.sharedService.sendMessage({UserData: this.UserData});
-    alert('Hii i am from service : ' + JSON.stringify(data));
+    this.sharedService.sendMessage({ UserData: this.UserData });
+    data.type = 'work';
+    const url = '${this.backendUrl}/home/user/update';
+    return this.http.post<any>(url, data, { observe: 'response' });
   }
 
-  getUserPhotos() {
-    return [
-      {
-        value: '../../../../assets/photo1.jpg',
-      },
-      {
-        value: '../../../../assets/photo2.jpg',
-      },
-      {
-        value: '../../../../assets/photo3.jpg',
-      },
-      {
-        value: '../../../../assets/photo4.jpg',
-      },
-    ];
+  getUserPhotos(userID) {
+    const url = `${this.backendUrl}/home/user/photos?userID=${userID}`;
+    return this.http.post(url, {});
   }
 }

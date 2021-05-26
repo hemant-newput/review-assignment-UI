@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SharedService } from 'src/app/services/sharedServices/shared.service';
 import { UserDetailService } from 'src/app/services/userDetailService/user-detail.service';
 
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -13,13 +14,18 @@ export class AboutComponent implements OnInit {
     private fb: FormBuilder,
     private userDetailService: UserDetailService,
     private sharedService: SharedService
-  ) {}
+  ) { }
   public isWorkFormEditable: boolean;
   public isBasicFormEditable: boolean;
   public workForm: FormGroup;
   public basicForm: FormGroup;
+  public isLoading: boolean;
+  public internalAccess: boolean;
   ngOnInit(): void {
+    this.sharedService.speak("Wait a second by the time we speak you about you")
+    this.isLoading = true;
     this.sharedService.setTitle('About');
+    this.internalAccess = this.sharedService.getInternalAccess();
     this.generateBasicForm();
     this.generateWorkForm();
     this.populateForms();
@@ -41,7 +47,7 @@ export class AboutComponent implements OnInit {
     this.workForm = this.fb.group({
       occupation: ['', Validators.required],
       skills: ['', Validators.required],
-      job: [''],
+      jobCompany: [''],
     });
     this.workForm.valueChanges.subscribe((data) => {
       // console.log(this.workForm.value);
@@ -49,20 +55,25 @@ export class AboutComponent implements OnInit {
     this.workForm.disable();
   }
   populateForms() {
-    this.userDetailService.getUserData().subscribe((userData) => {
+    const userID = localStorage.getItem('userID') || 1;
+    this.userDetailService.getUserData(userID).subscribe((userData) => {
+      userData = userData.data;
       // console.log(userData);
       this.basicForm.patchValue({
         name: userData.name,
         gender: userData.gender,
-        dob: userData.dob,
+        dob: new Date(parseInt(userData.dob)),
         married: userData.married,
         location: userData.location,
       });
       this.workForm.patchValue({
         occupation: userData.occupation,
         skills: userData.skills,
-        job: userData.job,
+        jobCompany: userData.jobCompany,
       });
+      this.isLoading = false;
+      this.sharedService.sendMessage(userData);
+      this.sharedService.speak(`here we go , u can update this data if u feel there is some misunderstanding of what we know about u`)
     });
   }
   makeBasicFormEditable() {
@@ -82,9 +93,15 @@ export class AboutComponent implements OnInit {
     this.workForm.disable();
   }
   updateBasicInfo() {
-    this.userDetailService.updateBasicDetails(this.basicForm.value);
+    this.userDetailService.updateBasicDetails(this.basicForm.value).subscribe((userData) => {
+      this.sharedService.sendMessage({ userData });
+      this.makeBasicFormUneditable()
+    });
   }
   updateWorkInfo() {
-    this.userDetailService.updateWorkDetails(this.workForm.value);
+    this.userDetailService.updateWorkDetails(this.workForm.value).subscribe((userData) => {
+      this.sharedService.sendMessage({ userData });
+      this.makeWorkFormUneditable();
+    });
   }
 }

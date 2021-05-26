@@ -1,7 +1,8 @@
-<div class="parent">
+<div class="parent" *ngIf="!isLoading">
     <div class="basic">
         <div class="heading">BASIC INFORMATION</div>
-        <button (click)="makeBasicFormEditable()" class="edit btn btn-primary"><i class="fa fa-edit"></i></button>
+        <button *ngIf="internalAccess" (click)="makeBasicFormEditable()" class="edit btn btn-primary"><i
+                class="fa fa-edit"></i></button>
         <hr>
         <div class="basic-info-form">
             <form [formGroup]="basicForm">
@@ -14,18 +15,20 @@
                 <div class="form-group row">
                     <label for="gender" class="col-sm-2 col-form-label">Gender</label>
                     <div class="col-sm-10 col-7">
-                        <input *ngIf="!isBasicFormEditable" type="text" formControlName="gender" class="form-control" id="gender">
+                        <input *ngIf="!isBasicFormEditable" type="text" formControlName="gender" class="form-control"
+                            id="gender">
                         <select *ngIf="isBasicFormEditable" class="form-control" formControlName="gender">
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
-                          </select>
+                        </select>
                     </div>
 
                 </div>
                 <div class="form-group row">
                     <label for="dob" class="col-sm-2 col-form-label">DOB</label>
                     <div class="col-sm-10 col-7">
-                        <input *ngIf="!isBasicFormEditable" type="text" formControlName="dob" class="form-control" id="dob">
+                        <input *ngIf="!isBasicFormEditable" type="text" formControlName="dob" class="form-control"
+                            id="dob">
                         <input *ngIf="isBasicFormEditable" type="date" formControlName="dob" class="form-control">
                     </div>
                 </div>
@@ -56,7 +59,8 @@
     <div class="work">
         <div class="heading">WORK</div>
         <hr>
-        <button (click)="makeWorkFormEditable()" class="edit btn btn-primary"><i class="fa fa-edit"></i></button>
+        <button *ngIf="internalAccess" (click)="makeWorkFormEditable()" class="edit btn btn-primary"><i
+                class="fa fa-edit"></i></button>
         <div class="basic-info-form">
             <form [formGroup]="workForm">
                 <div class="form-group row">
@@ -72,9 +76,9 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="job" class="col-sm-2 col-form-label">Job</label>
+                    <label for="jobCompany" class="col-sm-2 col-form-label">Working At</label>
                     <div class="col-sm-10 col-7">
-                        <input type="text" formControlName="job" class="form-control" id="job">
+                        <input type="text" formControlName="jobCompany" class="form-control" id="jobCompany">
                     </div>
                 </div>
                 <div *ngIf="isWorkFormEditable" class="form-group row">
@@ -91,62 +95,6 @@
 
 </div>
 
-
-
-<!--
-<div class="parent">
-    <div class="basic">
-        <div class="heading">BASIC INFORMATION</div>
-        <button class="edit btn btn-primary"><i class="fa fa-edit"></i></button>
-        <hr>
-        <div>
-            <table>
-                <tr>
-                    <th>Full Name</th>
-                    <td>Hemant Shrivastava</td>
-                </tr>
-                <tr>
-                    <th>Gender</th>
-                    <td>Male</td>
-                </tr>
-                <tr>
-                    <th>DOB</th>
-                    <td>6 sep 1998</td>
-                </tr>
-                <tr>
-                    <th>Martial Status</th>
-                    <td>Unmarried</td>
-                </tr>
-                <tr>
-                    <th>Location</th>
-                    <td>AYODHYA</td>
-                </tr>
-                <td></td>
-            </table>
-        </div>
-    </div>
-    <hr class="wideRule">
-    <div class="work">
-        <div class="heading">WORK</div>
-        <hr>
-        <button class="edit btn btn-primary"><i class="fa fa-edit"></i></button>
-        <div>
-            <table>
-                <tr>
-                    <th>Occupation</th>
-                    <td>Software Developer </td>
-                </tr>
-                <tr>
-                    <th>Skills</th>
-                    <td>Javascript</td>
-                </tr>
-                <tr>
-                    <th>Job</th>
-                    <td>Newput Technologies</td>
-                </tr>
-                <td></td>
-            </table>
-        </div>
-    </div>
-
-</div> -->
+<div class="loader" *ngIf="isLoading">
+    <app-loader [size]="'sm'" [speed]="'high'"></app-loader>
+</div>
