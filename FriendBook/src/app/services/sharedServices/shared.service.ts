@@ -48,7 +48,7 @@ export class SharedService {
       didOpen: () => {
         Swal.showLoading();
         timerInterval = setInterval(() => {
-          const content = Swal.getContent();
+          const content = Swal.getHtmlContainer();
           if (content) {
             const b = content.querySelector('b');
             if (b) {
