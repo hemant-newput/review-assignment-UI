@@ -1,21 +1,27 @@
 <div class="parent" id="parent">
-    <div class="login-form container">
-        <img src="../assets/loginAvatar.png" width="180px" alt="There is supposed to be an image here" />
-        <form [formGroup]="loginForm">
-            <input type="text" class="input-text" formControlName="username" name="username"
-                placeholder="Enter Username" />
-            <br />
-            <input type="password" class="input-text" name="password" formControlName="password"
-                placeholder="Enter Password" />
-            <br />
-            <button name="button" (click)="submitForm()" class="btn custom-btn">
-                Login
-            </button>
-        </form>
-        <button class="forget">Forget Password</button>
-        <br />
+    <div class="login-form container shadow-lg">
+        <div class="Image">
+            <img src="../assets/loginAvatar.png" width="180px" alt="There is supposed to be an image here" />
+        </div>
+        <div class="fields">
+            <form [formGroup]="loginForm">
+                <input type="text" class="input-text" formControlName="username" name="username"
+                    placeholder="Enter Username" />
+                <br />
+                <input type="password" class="input-text" name="password" formControlName="password"
+                    placeholder="Enter Password" />
+                <br />
+                <button name="button" (click)="submitForm()" class="btn btn-primary custom-btn">
+                    Login
+                </button>
+            </form>
+            <br>
         <div class="signUp">
+            <button class="forget">Forget Password</button>
+            <br>
             <a routerLink="signUp">Dont Have an Account Sign Up Now</a>
         </div>
+        </div>
+        
     </div>
 </div>
