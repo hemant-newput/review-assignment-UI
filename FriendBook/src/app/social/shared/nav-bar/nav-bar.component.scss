@@ -40,7 +40,6 @@
         }
     }
     .userName {
-        margin: 0px 15px;
         padding: 5px;
         &:hover {
             text-decoration: none;
@@ -73,6 +72,18 @@
         padding: 0rem;
     }
     .icon {
-        width: 20%;
+        width: 56%;
+        .userName{
+            font-size: small;
+        }
     }
+    .navBtn{
+        padding: 0px;
+        margin: 0px;
+        display: none;
+    }
+    .profile{
+        display: block;
+    }
+   
 }
