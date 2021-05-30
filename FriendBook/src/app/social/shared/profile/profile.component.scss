@@ -9,7 +9,7 @@
     }
     .data
     {
-        // border: 1px solid grey;
+        box-shadow: 2px 2px 2px grey;
         min-height: 200px;
         background-color: white;
             display: flex;
@@ -21,11 +21,10 @@
         margin: 10px auto;
         width: 95%;
         height: 100%;
-        border: 2px solid rgb(228, 227, 227);;
         border-radius : 100%;
-        box-shadow: 1px 0px 10px 0px #61a0e4;
+        box-shadow: 1px 0px 10px 0px gray;
         &:hover{
-            box-shadow: 3px 3px 15px 3px #0d80fa;
+            box-shadow: 3px 3px 15px 3px gray;
         }
 
     }

@@ -8,7 +8,7 @@ import { ConfigService } from './sharedServices/config.service';
 export class PostService {
 
   constructor(private http: HttpClient, private configService: ConfigService) { }
-  public url = "https://friendbook-backend.herokuapp.com";
+  public url = "http://localhost:5000";
   addPost(post): any {
     const userID = localStorage.getItem('userID')
     const url = `${this.url}/home/users/${userID}/posts/create`;

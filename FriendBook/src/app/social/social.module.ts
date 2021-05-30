@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoaderComponent } from './loader/loader.component';
 import { EmptyStateComponent } from './shared/empty-state/empty-state.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { ShareComponent } from './shared/share/share.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { FooterComponent } from './shared/footer/footer.component';
     LoaderComponent,
     EmptyStateComponent,
     FooterComponent,
+    ShareComponent,
   ],
   imports: [
     CommonModule,

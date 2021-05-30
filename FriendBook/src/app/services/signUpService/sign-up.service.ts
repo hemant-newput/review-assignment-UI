@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SignUpService {
-  public url = "https://friendbook-backend.herokuapp.com";
+  public url = "http://localhost:5000";
   constructor(private http: HttpClient) { }
   signUp(body) {
     let url2 = `${this.url}/auth/signUp`;

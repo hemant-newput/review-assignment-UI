@@ -22,20 +22,20 @@
         text-align: center;
     }
     .navItems:hover{
-        border-bottom: 2px solid blue;
-        color: blue;
+        border-bottom: 2px solid #0066FF;
+        color: #0066FF;
     }
     .navItems:focus{
-        color: blue;
+        color: #0066FF;
         outline: none;
-        border-bottom: 2px solid blue;
+        border-bottom: 2px solid #0066FF;
     }
 
 }
 .selected{
-    color: blue;
+    color: #0066FF;
     border: 0px;
-    border-bottom: 2px solid blue;
+    border-bottom: 2px solid #0066FF;
 }
 
 @media (max-width: 1000px) {

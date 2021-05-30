@@ -6,29 +6,7 @@ import { SharedService } from '../sharedServices/shared.service';
   providedIn: 'root'
 })
 export class FriendListService {
-  public backendUrl = "https://friendbook-backend.herokuapp.com";
-  // public data = [
-  //   { name: 'Hemant Shrivastava', position: 'SDE', company: 'Google', image: '../../../../assets/profile.jpg', status: true },
-  //   { name: 'Piyush Chandak', position: 'SDE', company: 'Microsoft', image: '../../../../assets/profile.jpg', status: true },
-  //   { name: 'Udit Jain', position: 'SDE', company: 'Facebook', image: '../../../../assets/profile.jpg', status: true },
-  //   { name: 'Gurpreet Chabbra', position: 'SDE', company: 'Apple', image: '../../../../assets/profile-girl.png', status: true },
-  //   { name: 'Awanish Tiwari', position: 'SDE', company: 'Newput', image: '../../../../assets/profile.jpg', status: true },
-  //   { name: 'Siya', position: 'SDE', company: 'Newput', image: '../../../../assets/profile.jpg', status: true },
-  //   { name: 'Anjana', position: 'SDE', company: 'Newput', image: '../../../../assets/profile-girl.png', status: true },
-  //   { name: 'Alex taxeria', position: 'SDE', company: 'Newput', image: '../../../../assets/profile.jpg', status: true },
-  //   { name: 'Suman', position: 'SDE', company: 'Newput', image: '../../../../assets/profile.jpg', status: true },
-  //   { name: 'Rupak', position: 'SDE', company: 'Newput', image: '../../../../assets/profile.jpg', status: true },
-  //   { name: 'Hemant Shrivastava', position: 'SDE', company: 'Google', image: '../../../../assets/profile.jpg', status: true },
-  //   { name: 'Piyush Chandak', position: 'SDE', company: 'Microsoft', image: '../../../../assets/profile.jpg', status: true },
-  //   { name: 'Udit Jain', position: 'SDE', company: 'Facebook', image: '../../../../assets/profile.jpg', status: true },
-  //   { name: 'Gurpreet Chabbra', position: 'SDE', company: 'Apple', image: '../../../../assets/profile-girl.png', status: true },
-  //   { name: 'Awanish Tiwari', position: 'SDE', company: 'Newput', image: '../../../../assets/profile.jpg', status: true },
-  //   { name: 'Siya', position: 'SDE', company: 'Newput', image: '../../../../assets/profile.jpg', status: true },
-  //   { name: 'Anjana', position: 'SDE', company: 'Newput', image: '../../../../assets/profile-girl.png', status: true },
-  //   { name: 'Alex taxeria', position: 'SDE', company: 'Newput', image: '../../../../assets/profile.jpg', status: true },
-  //   { name: 'Suman', position: 'SDE', company: 'Newput', image: '../../../../assets/profile.jpg', status: true },
-  //   { name: 'Rupak', position: 'SDE', company: 'Newput', image: '../../../../assets/profile.jpg', status: true },
-  // ];
+  public backendUrl = "http://localhost:5000";
 
   constructor(private sharedService: SharedService, private http: HttpClient) { }
   // sortFriendList1() {

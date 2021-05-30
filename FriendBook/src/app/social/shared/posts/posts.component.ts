@@ -70,7 +70,7 @@ export class PostsComponent implements OnInit {
         }
       });
       this.postService.likePost(post).subscribe(() => {
-        this.sharedService.speak("this is nice i guess")
+        this.sharedService.speak("Ahh i dont like it");
       });
     } else {
       post.userLiked = true;
@@ -81,42 +81,44 @@ export class PostsComponent implements OnInit {
         }
       });
       this.postService.likePost(post).subscribe(() => {
-        this.sharedService.speak("Ahh i dont like it");
+
+        this.sharedService.speak("this is nice i guess")
       });
     }
   }
 
   sharePost(media): void {
-      if (media === 'friendbook') {
-        this.selectedPost.userShared = true;
-        this.posts.map((data) => {
-          if (data.name === this.selectedPost.name) {
-            data.shares = parseInt(data.shares, 10);
-            data.shares = data.shares += 1;
-          }
-        });
-        this.postService.sharePost(this.selectedPost).subscribe(() => {
-          this.sharePostModal.nativeElement.click();
-          this.sharedService.timerModal('Successfully shared on your Timeline!', 2000);
-        });
-      }
-      if (media === 'whatsapp') {
-        const url = 'https://api.whatsapp.com/send';
-        const text = this.selectedPost && this.selectedPost.image_url;
-        window.open(`${url}?text='${encodeURIComponent(text)}`);
+    if (media === 'friendbook') {
+      this.selectedPost.userShared = true;
+      this.posts.map((data) => {
+        if (data.name === this.selectedPost.name) {
+          data.shares = parseInt(data.shares, 10);
+          data.shares = data.shares += 1;
+        }
+      });
+      this.postService.sharePost(this.selectedPost).subscribe(() => {
         this.sharePostModal.nativeElement.click();
-        this.sharedService.timerModal('Successfully shared on your whatsapp!', 2000);
-      }
-      if (media === 'clipboard') {
-        const text = this.selectedPost && this.selectedPost.image_url;
-        navigator.clipboard.writeText(text).then(() => {
-          console.log('Async: Copying to clipboard was successful!');
-          this.sharedService.timerModal('Successfully copied to ClipBoard!', 2000);
-        }, (err) => {
-          console.error('Async: Could not copy text: ', err);
-          this.sharedService.timerModal('Async: Could not copy text:', 2000);
+        this.sharedService.timerModal('Successfully shared on your Timeline!', 2000);
+      });
+    }
+    if (media === 'whatsapp') {
+      const url = 'https://api.whatsapp.com/send';
+      const text = this.selectedPost && this.selectedPost.image_url;
+      window.open(`${url}?text='${encodeURIComponent(text)}`);
+      this.sharePostModal.nativeElement.click();
+    }
+    if (media === 'clipboard') {
+      const text = this.selectedPost && this.selectedPost.image_url;
+      navigator.clipboard.writeText(text).then(() => {
+        Swal.fire({
+          position: 'top-end', icon: 'success',
+          title: 'Successfully copied to ClipBoard!', showConfirmButton: false, timer: 1500
         });
-      }
+        this.sharePostModal.nativeElement.click();
+      }, (err) => {
+        this.sharedService.timerModal('Async: Could not copy text:', 2000);
+      });
+    }
   }
   saveSelectedPost(post): void {
     this.selectedPost = post;
@@ -130,7 +132,7 @@ export class PostsComponent implements OnInit {
       this.isLoading = false;
     });
   }
-//switch case
+  //switch case
   public formatDate(date): string {
     const currenctDate = moment();
     const duration = currenctDate.diff(date, 'seconds');
@@ -181,5 +183,7 @@ export class PostsComponent implements OnInit {
       }
     });
   }
-
+  optionSelected(media) {
+    console.log(media)
+  }
 }

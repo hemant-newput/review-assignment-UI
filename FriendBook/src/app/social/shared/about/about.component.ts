@@ -39,7 +39,6 @@ export class AboutComponent implements OnInit {
       location: [''],
     });
     this.basicForm.valueChanges.subscribe((data) => {
-      // console.log(this.basicForm.value);
     });
     this.basicForm.disable();
   }
@@ -50,7 +49,6 @@ export class AboutComponent implements OnInit {
       jobCompany: [''],
     });
     this.workForm.valueChanges.subscribe((data) => {
-      // console.log(this.workForm.value);
     });
     this.workForm.disable();
   }
@@ -58,7 +56,6 @@ export class AboutComponent implements OnInit {
     const userID = localStorage.getItem('userID') || 1;
     this.userDetailService.getUserData(userID).subscribe((userData) => {
       userData = userData.data;
-      // console.log(userData);
       this.basicForm.patchValue({
         name: userData.name,
         gender: userData.gender,
@@ -95,7 +92,7 @@ export class AboutComponent implements OnInit {
   updateBasicInfo() {
     this.userDetailService.updateBasicDetails(this.basicForm.value).subscribe((userData) => {
       this.sharedService.sendMessage({ userData });
-      this.makeBasicFormUneditable()
+      this.makeBasicFormUneditable();
     });
   }
   updateWorkInfo() {

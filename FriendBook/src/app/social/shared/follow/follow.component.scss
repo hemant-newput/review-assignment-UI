@@ -1,6 +1,7 @@
 .parent{
     margin: 20px;
-    // border: 1px solid grey;
+    height: 100%;
+    box-shadow: 2px 2px 2px grey;
     width: 100%;
     background-color: white;
     display: flex;
@@ -11,7 +12,7 @@
         margin: 0px 0px;
     }
     .container{
-        height: 300px;
+        height: 335px;
         overflow: scroll;
     }
     .heading{
@@ -21,6 +22,12 @@
         color: rgb(83, 80, 80);
         hr{
             margin-top: 10px;
+        }
+        img{
+            height: 50px;
+            position: relative;
+            top: -10px;
+            left: 30px;
         }
     }
     .person{
@@ -41,4 +48,42 @@
         }
     }
 
+}
+
+@media (max-width: 1000px) {
+    .parent{
+        margin: 10px;
+        height: 100%;
+        box-shadow: 2px 2px 2px grey;
+        width: 103%;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        img{
+        height: 50px;
+            margin: 0px 0px;
+        }
+        .container{
+            height: 335px;
+            overflow: scroll;
+        }
+        .heading{
+            text-align: center;
+            font-weight: bold;
+            padding-top: 15px;
+            color: rgb(83, 80, 80);
+            hr{
+                margin-top: 0px;
+            }
+            img{
+                height: 50px;
+                position: relative;
+                top: -10px;
+                left: 30px;
+            }
+        }
+    
+    }
+    
 }

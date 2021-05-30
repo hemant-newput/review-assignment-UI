@@ -8,7 +8,7 @@ import { SharedService } from '../sharedServices/shared.service';
 })
 export class UserDetailService {
   constructor(private sharedService: SharedService, private http: HttpClient) { }
-  public backendUrl = "https://friendbook-backend.herokuapp.com"
+  public backendUrl = "http://localhost:5000"
   public UserData   = {
     name: 'Hemant Shrivastava',
     gender: 'Male',

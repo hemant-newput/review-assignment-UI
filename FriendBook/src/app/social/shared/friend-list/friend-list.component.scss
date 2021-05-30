@@ -1,7 +1,9 @@
 .parent {
     position: relative;
     width: 100%;
-
+    .mobile-follow {
+        display: none;
+    }
     .person {
         width: 48%;
         height: 170px;
@@ -47,9 +49,14 @@
     .parent {
         position: relative;
         width: 100%;
-
+        .mobile-follow {
+            display:block;
+            width: 90%;
+            border: 0px;
+            height: 195px;
+        }
         .person {
-            height: 140px;
+            height: 145px;
             display: inline-block;
             position: relative;
             width: 94%;
@@ -81,6 +88,10 @@
             button {
                 margin: 10px;
                 border-radius: 5px;
+            }
+            .btn-danger{
+                position: relative;
+                left: 65px;
             }
         }
     }
