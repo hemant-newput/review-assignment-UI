@@ -9,13 +9,15 @@ import { PostsComponent } from './shared/posts/posts.component';
 import { ProfileComponent } from './shared/profile/profile.component';
 
 const routes: Routes = [
-  {path:'',component:HomePageComponent,children:[
-    {path:'',redirectTo:'posts',pathMatch:'full' },
-    {path:'posts',component:PostsComponent},
-    {path:'about',component:AboutComponent},
-    {path:'photos',component:PhotosComponent},
-    {path:'friends',component:FriendListComponent},
-  ] },
+  {
+    path: '', component: HomePageComponent, children: [
+      { path: '', redirectTo: 'posts', pathMatch: 'full' },
+      { path: 'posts', component: PostsComponent },
+      { path: 'about', component: AboutComponent },
+      { path: 'photos', component: PhotosComponent },
+      { path: 'friends', component: FriendListComponent },
+    ]
+  },
 
 ];
 

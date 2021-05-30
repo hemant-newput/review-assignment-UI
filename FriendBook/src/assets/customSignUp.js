@@ -7,8 +7,8 @@ box.addEventListener('mousemove', e => {
   var xOffset = -(xPosition - 0.8);
   var dxNorm = Math.min(Math.max(xOffset, -0.8), 0.8)
   box.style.transform = `perspective(1000px)
-                        rotateY(${dxNorm*45}deg)
-                        rotateX(${yPosition*45}deg) `
+                        rotateY(${dxNorm*5}deg)
+                        rotateX(${yPosition*5}deg) `
   box.addEventListener('mouseleave', () => {
     box.style.transform = 'skew'
   })
