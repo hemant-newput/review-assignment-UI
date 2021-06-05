@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SignUpService } from 'src/app/services/signUpService/sign-up.service';
+import { STEP_ITEMS } from '../configs/signUpFormConfig';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,6 +12,7 @@ import { SignUpService } from 'src/app/services/signUpService/sign-up.service';
 })
 export class SignUpComponent implements OnInit {
   signUpForm: FormGroup;
+  currentStep: any;
   constructor(
     private formBuilder: FormBuilder,
     private signUpService: SignUpService,
@@ -76,5 +78,16 @@ export class SignUpComponent implements OnInit {
     s.type = 'text/javascript';
     s.src = '../../../assets/customSignUp.js';
     this.elementRef.nativeElement.appendChild(s);
+  }
+  public createForm(){
+    const formGeneratorArray = {}
+    const formObject = STEP_ITEMS[this.currentStep].data;
+    for (const key in formObject) {
+      formGeneratorArray[key] = ['',formObject[key]['validators']]
+    }
+
+
+    this.signUpForm = this.formBuilder.group(formGeneratorArray);
+    console.log(this.signUpForm)
   }
 }

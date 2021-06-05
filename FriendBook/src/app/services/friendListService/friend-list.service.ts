@@ -6,7 +6,7 @@ import { SharedService } from '../sharedServices/shared.service';
   providedIn: 'root'
 })
 export class FriendListService {
-  public backendUrl = "http://localhost:5000";
+  public backendUrl = "https://friendbook-backend.herokuapp.com";
 
   constructor(private sharedService: SharedService, private http: HttpClient) { }
   // sortFriendList1() {

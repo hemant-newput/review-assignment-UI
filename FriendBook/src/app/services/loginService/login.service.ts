@@ -6,7 +6,7 @@ import { loginResponse } from 'src/app/interfaces/loginResponse.interface';
   providedIn: 'root'
 })
 export class LoginService {
-  public url = "http://localhost:5000";
+  public url = "https://friendbook-backend.herokuapp.com";
   constructor(private http: HttpClient) { }
   tryLogin(userName, password) {
 
