@@ -13,7 +13,6 @@
     &:hover{
         color: white;
         border-radius: 10px;
-        box-shadow: 2px 2px 2px 2px blue;
     }
 }
 .navBtn {
@@ -24,7 +23,6 @@
         text-decoration: none;
         cursor: pointer;
         border-radius: 10px;
-        box-shadow: 2px 2px 2px 2px blue;
     }
 }
 .icon {
@@ -34,7 +32,8 @@
     .dropdown-menu {
         position: absolute !important;
         text-align: center;
-        left: 100px;
+        left: 204px;
+        top: 48px;
         a {
             color: black;
         }
@@ -45,7 +44,7 @@
             text-decoration: none;
             cursor: pointer;
             border-radius: 10px;
-            box-shadow: 2px 2px 2px 2px blue;
+            
         }
     }
 }
@@ -75,6 +74,15 @@
         width: 39%;
         .userName{
             font-size: small;
+        }
+        .dropdown-menu {
+            position: absolute !important;
+            text-align: center;
+            left: 0px;
+            top: 48px;
+            a {
+                color: black;
+            }
         }
     }
     .navBtn{

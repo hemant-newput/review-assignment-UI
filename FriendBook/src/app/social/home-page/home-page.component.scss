@@ -1,6 +1,6 @@
 .parent {
     background-color: rgb(228, 227, 227);
-    min-height: 1300px;
+    min-height: 1270px;
     .left-parent {
         width: 20%;
         display: inline-block;
@@ -8,13 +8,15 @@
         top: 250px;
     }
     .right-parent {
-        width: 77%;
-        margin-left: 24%;
+        width: 78%;
+        margin-left: 22.5%;
         display: inline-block;
     }
 }
 .wallpaper {
     width: 100%;
+    height: 490px;
+    overflow: hidden;
     .image {
         position: relative;
         margin: 0px;
@@ -53,7 +55,9 @@
             width: 100%;
             margin-left: 0px;
         }
-    
+    .wallpaper{
+        height: 96px;
+    }
     }
 
     .follows {

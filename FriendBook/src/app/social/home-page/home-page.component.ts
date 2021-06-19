@@ -11,7 +11,7 @@ import { SharedService } from 'src/app/services/sharedServices/shared.service';
 export class HomePageComponent implements OnInit {
   public position;
   public name;
-  public internalAccess = true;
+  public internalAccess;
   public following;
   public followers;
   public activities;
@@ -30,7 +30,7 @@ export class HomePageComponent implements OnInit {
     this.postService.getUserData(userID).subscribe((postData) => {
       this.position = postData.data.position;
       this.name = postData.data.name;
-      this.internalAccess = postData.data.internalAccess;
+      this.internalAccess = postData.internalAccess;
       this.following = postData.data.following;
       this.followers = postData.data.followers;
       this.activities = postData.data.activities;

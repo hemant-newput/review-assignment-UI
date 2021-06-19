@@ -11,83 +11,87 @@ import { STEP_ITEMS } from '../configs/signUpFormConfig';
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
-  signUpForm: FormGroup;
-  currentStep: any;
+  public signUpForm: FormGroup;
+  public currentStep = 0;
+  public currentFormConfig: any;
+  public formObject: any;
+  public signUpObject = {};
+  public isLoading: boolean;
   constructor(
     private formBuilder: FormBuilder,
     private signUpService: SignUpService,
     private router: Router,
     private toastr: ToastrService,
     private elementRef: ElementRef
-  ) {}
-  get fullName(): any {
-    return this.signUpForm.controls['fullName'];
-  }
-  get email(): any {
-    return this.signUpForm.controls['email'];
-  }
-  get phone(): any {
-    return this.signUpForm.controls['phone'];
-  }
-  get occupation(): any {
-    return this.signUpForm.controls['occupation'];
-  }
-  get dob(): any {
-    return this.signUpForm.controls['dob'];
-  }
-  get address(): any {
-    return this.signUpForm.controls['address'];
-  }
-  get password(): any {
-    return this.signUpForm.controls['password'];
-  }
-  get confirmPassword(): any {
-    return this.signUpForm.controls['confirmPassword'];
-  }
+  ) { }
+
   ngOnInit(): void {
     document.title = 'Sign Up';
-    this.signUpForm = this.formBuilder.group({
-      fullName: ['', Validators.required],
-      email: ['', Validators.required],
-      phone: ['', Validators.required],
-      occupation: ['', Validators.required],
-      dob: ['', Validators.required],
-      address: ['', Validators.required],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
-    });
+    this.createForm();
   }
-  public submitForm() {
-    if (this.password.value !== this.confirmPassword.value) {
-      this.toastr.info('Password not matched');
-    } else {
-      this.signUpService.signUp(this.signUpForm.value).subscribe(
-        (data) => {
-          data
-            ? this.router.navigate(['/auth/login'])
-            : this.router.navigate(['/auth/signup']);
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
-    }
+  public submitForm(): void {
+    this.persistData();
+    this.isLoading = true;
+    this.signUpService.signUp(this.signUpObject).subscribe(
+      (data) => {
+        this.isLoading = true;
+        data
+          ? this.router.navigate(['/auth/login'])
+          : this.router.navigate(['/auth/signup']);
+      },
+      (err) => {
+        console.log(err);
+      });
   }
+
   ngAfterViewChecked() {
     const s = document.createElement('script');
     s.type = 'text/javascript';
     s.src = '../../../assets/customSignUp.js';
     this.elementRef.nativeElement.appendChild(s);
   }
-  public createForm(){
-    const formGeneratorArray = {}
-    const formObject = STEP_ITEMS[this.currentStep].data;
-    for (const key in formObject) {
-      formGeneratorArray[key] = ['',formObject[key]['validators']]
+
+  renderForm(movement): void {
+    if (movement === 'next') {
+      this.persistData();
+      this.currentStep += 1;
     }
+    else if (movement === 'previous') {
+      this.currentStep -= 1;
+    }
+    else if (movement === 'submit') {
+      this.submitForm();
+    }
+    this.createForm();
+  }
+  public createForm(): void {
+    const formGeneratorArray = {};
+    this.formObject = STEP_ITEMS[this.currentStep] && STEP_ITEMS[this.currentStep].data;
+    if (this.formObject) {
+      this.formObject.forEach((obj) => {
+        formGeneratorArray[obj.name] = ['', obj.validators]
+      })
+      this.signUpForm = this.formBuilder.group(formGeneratorArray);
+    }
+  }
+  persistData(): void {
+    const keys = Object.keys(this.signUpForm.value);
+    keys.forEach((control) => {
+      this.signUpObject[control] = this.signUpForm.value[control];
+    });
+    console.log(this.signUpObject)
 
-
-    this.signUpForm = this.formBuilder.group(formGeneratorArray);
-    console.log(this.signUpForm)
+  }
+  greaterThan(a, b): boolean {
+    return a > b;
+  }
+  lessThan(a, b): boolean {
+    return a < b;
+  }
+  equalTo(a, b): boolean {
+    return a === b;
+  }
+  notEqualTo(a, b): boolean {
+    return a !== b;
   }
 }

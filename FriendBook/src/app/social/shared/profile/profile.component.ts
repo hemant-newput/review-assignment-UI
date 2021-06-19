@@ -11,7 +11,7 @@ export class ProfileComponent implements OnInit {
 
   @Input() public position;
   @Input() public name;
-  @Input() public internalAccess;
+  @Input() public internalAccess: boolean;
   @Input() public following;
   @Input() public followers;
   @Input() public activities;
@@ -23,7 +23,6 @@ export class ProfileComponent implements OnInit {
               private friendService: FriendListService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-
   }
   addFriend(friendID): void {
     this.friendService.addFriend(friendID).subscribe((data) => {
@@ -34,7 +33,6 @@ export class ProfileComponent implements OnInit {
   }
   ngAfterViewChecked() {
     this.cdr.detectChanges();
-    this.internalAccess = this.sharedService.getInternalAccess();
     this.sharedService.getMessage().subscribe((data) => {
       if (data) {
         this.messages.push(data);

@@ -2,10 +2,7 @@
     <a>
         <img src="{{profileImage}}" alt="" *ngIf="!isLoading">
         <div class="loader" *ngIf="isLoading">
-            <app-loader
-[size] = "xl"
-[speed] = "high"
-></app-loader>
+            <app-loader [size]="xl" [loader]="true"></app-loader>
         </div>
     </a>
     <div class="modal fade" id="profileImageModal" tabindex="-1" role="dialog">
@@ -37,7 +34,8 @@
                 Activites
             </div>
         </div>
-        <button class=" btn-sm btn-light addFriendButton" (click)= addFriend(friendID) *ngIf="!internalAccess"><i class="fa fa-user"></i> ADD AS
+        <button class=" btn-sm btn-light addFriendButton" (click)=addFriend(friendID) *ngIf="!internalAccess"><i
+                class="fa fa-user"></i> ADD AS
             FRIEND</button>
     </div>
 </div>

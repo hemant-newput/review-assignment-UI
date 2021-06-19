@@ -14,5 +14,10 @@ export class LoginService {
     let body = { userName, password };
     return this.http.post<loginResponse>(urls, body, { observe: 'response' })
   }
+  resetPassword(userName){
+    let urls = `${this.url}/auth/forget`;
+    let body = { userName };
+    return this.http.post<loginResponse>(urls, body, { observe: 'response' })
+  }
 }
 

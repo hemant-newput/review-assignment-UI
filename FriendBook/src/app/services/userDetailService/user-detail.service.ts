@@ -26,7 +26,7 @@ export class UserDetailService {
   updateBasicDetails(data) {
     this.UserData.name = data.name;
     this.sharedService.sendMessage({ UserData: this.UserData });
-    const url = '${this.backendUrl}/home/user/update';
+    const url = `${this.backendUrl}/home/user/update`;
     data.type = 'basic';
     return this.http.post<any>(url, data, { observe: 'response' });
   }
@@ -34,7 +34,7 @@ export class UserDetailService {
     this.UserData.occupation = data.occupation;
     this.sharedService.sendMessage({ UserData: this.UserData });
     data.type = 'work';
-    const url = '${this.backendUrl}/home/user/update';
+    const url = `${this.backendUrl}/home/user/update`;
     return this.http.post<any>(url, data, { observe: 'response' });
   }
 

@@ -1,12 +1,14 @@
 .parent {
+    margin-top: 20px;
+    margin-left: 0px;
     position: relative;
     width: 100%;
     .post {
         background-color: white;
         position: relative;
-        width: 92%;
+        width: 94%;
         float: right;
-        margin: 20px 10px 0px 10px;
+        margin: 0px 0px 10px -20px;
         .name {
             margin: 20px;
         }
@@ -42,16 +44,19 @@
             border: 0px;
             background-color: inherit;
             top: 5px;
+            &:hover{
+                color: red;
+            }
         }
         button {
             background-color: white;
             color: grey;
-            // padding: 5px 20px;
             border: 0px;
         }
         .logo {
             border-radius: 50%;
             width: 70px;
+            height: 70px;
             position: absolute;
             top: 10px;
             left: -85px;
@@ -67,12 +72,13 @@
         // filter: blur(8px);
     }
     .share-modal {
-        color: white;
-        background: #0F2027;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        color: Black;
+        background-color: aliceblue;
         button{
             color: white;
+        }
+        .modal-header{
+            background-color: rgb(188, 221, 250);
         }
     }
 }

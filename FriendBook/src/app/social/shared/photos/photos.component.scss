@@ -1,5 +1,6 @@
 .parent {
     margin-top: 20px;
+    margin-left: 20px;
     padding: 20px;
     background-color: white;
     .photo-container {
@@ -26,12 +27,14 @@
 
 @media (max-width: 1000px) {
     .parent {
-        margin-top: 0px;
+        margin-top: 5px;
+        margin-left: 5px;
         padding: 20px;
         background-color: white;
         .photo-container {
             display: inline-block;
             width: 100%;
+            margin-bottom: 5px;
             img {
                 padding: 2%;
                 width: 100%;

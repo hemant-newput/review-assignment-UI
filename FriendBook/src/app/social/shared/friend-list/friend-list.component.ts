@@ -27,7 +27,7 @@ export class FriendListComponent implements OnInit {
 
   public Unfriend(friend): void {
     friend.status = false;
-    this.friendService.unfriend(friend, this.friendList).subscribe((data) => {
+    this.friendService.unfriend(friend.userID).subscribe((data) => {
       this.toastr.info(data.message);
       this.sharedService.speak(`You ${data.message}`)
     });

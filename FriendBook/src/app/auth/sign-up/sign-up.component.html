@@ -1,45 +1,72 @@
 <div class="parent" id="parent">
-    <div class="login-form container">
+  <div class="login-form container">
+    <div class="watcher">
+      <img src="../assets/avatar.png" width="120px" alt="There is supposed to be an image here" />
+      <!-- <app-watcher></app-watcher> -->
+    </div>
+    <div class="signUpForm">
+      <form [formGroup]="signUpForm">
+        <div *ngIf="!isLoading">
+          <ng-container *ngFor="let obj of formObject">
+            <div class="form-fields">
+              <i class="{{ obj.class }}"></i>
+              <ng-container *ngIf="notEqualTo(obj.type, 'radio') && notEqualTo(obj.type,'checkbox')">
+                <input
+                  [ngClass]=" signUpForm.controls[obj.name].valid ||  signUpForm.controls[obj.name].untouched ? 'noError': 'error'"
+                  type="{{ obj.type }}" class="input-text" formControlName="{{ obj.name }}" name="{{ obj.name }}"
+                  placeholder="{{ obj.placeholder }}" />
+                <label for="{{ obj.name }}">{{ obj.label }}</label>
+                <p class="validation"
+                  [ngClass]="signUpForm.controls[obj.name].invalid && signUpForm.controls[obj.name].touched ? 'error': 'd-none'">
+                  {{obj.errors}}</p>
+              </ng-container>
+              <ng-container *ngIf="equalTo(obj.type, 'radio')">
+               <div class="input-text d-inline-block">
+                <ng-container *ngFor="let optionObj of obj.options">
+                  <label for="{{optionObj.value}}">{{optionObj.value}}</label>
+                  <input type="radio" id="check" formControlName="{{ obj.name }}" label="{{optionObj.value}}" value="{{optionObj.value}}" [ngClass]=" signUpForm.controls[obj.name].valid ||  signUpForm.controls[obj.name].untouched ? 'noError': 'error'" />
+                </ng-container>
+                <p class="validation"
+                  [ngClass]="signUpForm.controls[obj.name].invalid && signUpForm.controls[obj.name].touched ? 'error': 'd-none'">
+                  {{obj.errors}}</p>
+               </div>
+              </ng-container>
+              <ng-container *ngIf="equalTo(obj.type,'checkbox')">
+                <input
+                  [ngClass]=" signUpForm.controls[obj.name].valid ||  signUpForm.controls[obj.name].untouched ? 'noError': 'error'"
+                  type="{{ obj.type }}" class="input-checkbox" formControlName="{{ obj.name }}" name="{{ obj.name }}"
+                  placeholder="{{ obj.placeholder }}" />
+                <label for="{{ obj.name }}">{{ obj.label }}</label>
+                <p class="validation"
+                  [ngClass]="signUpForm.controls[obj.name].invalid && signUpForm.controls[obj.name].touched ? 'error': 'd-none'">
+                  {{obj.errors}}</p>
+              </ng-container>
+            </div>
+          </ng-container>
+        </div>
+        
+        <div *ngIf="isLoading">
+          <app-loader [size]="'lg'" [loader]="true"></app-loader>
+        </div>
+        
 
-        <div class="watcher">
-        <img src="../assets/avatar.png" width="120px" alt="There is supposed to be an image here">
-         <!-- <app-watcher></app-watcher> -->
+        <div class="buttons">
+          <button *ngIf="greaterThan(currentStep, 0)" (click)="renderForm('previous')">
+            Previous
+          </button>
+          <!-- <button *ngIf="lessThan(currentStep, 4)" (click)="renderForm('next')"> -->
+            <button *ngIf="lessThan(currentStep, 4)" [disabled]="signUpForm.invalid" (click)="renderForm('next')">
+            Next
+          </button>
+          <button *ngIf="equalTo(currentStep, 4)" (click)="renderForm('submit')">
+            Submit
+          </button>
         </div>
+      </form>
+    </div>
 
-        <div class="signUpForm">
-            <form [formGroup]="signUpForm">
-                <i class="fa fa-user"></i>
-                <input type="text" class="input-text" formControlName="fullName" name="fullName"
-                    placeholder="Enter Your Full Name">
-                <i class="fa fa-envelope"></i>
-                <input type="text" class="input-text" formControlName="email" name="email"
-                    placeholder="Enter your Email-ID">
-                <br>
-                <i class="fa fa-mobile" style="font-size: 25px;"></i>
-                <input type="text" class="input-text" formControlName="phone" name="phone"
-                    placeholder="Enter your Mobile Number">
-                <i class="fa fa-laptop"></i>
-                <input type="text" class="input-text" formControlName="occupation" name="occupation"
-                    placeholder="Enter your Occupation">
-                <br>
-                <i class="fa fa-calendar"></i>
-    
-                <input type="date" class="input-text" formControlName="dob" name="dob" placeholder="Enter your DOB">
-                <i class="fa fa-home"></i>
-                <input type="text" class="input-text" formControlName="address" name="address"
-                    placeholder="Enter your Address">
-                <br>
-                <i class="fa fa-key"></i>
-                <input type="password" class="input-text" name="password" formControlName="password"
-                    placeholder="Enter Password">
-                <i class="fa fa-key"></i>
-                <input type="password" class="input-text" name="confirmPassword" formControlName="confirmPassword"
-                    placeholder="Confirm Password">
-                <br>
-                <button name="button" (click)="submitForm()" class="btn custom-btn">Sign Up</button>
-            </form>
-        </div>
-        <div class="login">
-            Already Have an Account <a routerLink='/auth'>Sign In</a>
-        </div>
-    </div> 
+    <div class="login">
+      Already Have an Account <a routerLink="/auth">Sign In</a>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,8 @@
 .parent {
     position: relative;
     width: 100%;
+    margin-top: 20px;
+    margin-left: 10px;
     .mobile-follow {
         display: none;
     }
@@ -14,33 +16,41 @@
         &:hover {
             box-shadow: 1px 0px 10px 0px rgb(177, 175, 175);
         }
-        img {
-            float: left;
-            width: 160px;
+        .image-container {
+            overflow: hidden;
+            display: inline-block;
+            width: 23%;
+            height: 85%;
             margin: 10px 15px;
-        }
-        .info {
-            position: absolute;
-            right: 5px;
-            border: 0px;
-            background-color: inherit;
-            top: 5px;
+            .image-holder {
+                display: inline-block;
+                background-position: center;
+                background-size: cover;
+                height: 100%;
+                width: 100%;
+
+                &:hover {
+                    transform: scale(1.2);
+                    overflow: hidden;
+                    background-clip: border-box;
+                }
+            }
         }
     }
     .data {
-        padding: 45px 5px;
+        display: inline-block;
+        width: 50%;
         p {
             cursor: pointer;
             font-size: larger;
-            padding: 0px;
-            margin: 0px;
         }
         button {
             cursor: pointer;
+            position: relative;
+            left: 24rem;
+            top: -2rem;
             margin: 10px;
-            z-index: 100;
-            padding: 0px 10px;
-            border-radius: 10px;
+            padding: 5px 10px;
         }
     }
 }
@@ -48,12 +58,14 @@
 @media (max-width: 1000px) {
     .parent {
         position: relative;
-        width: 100%;
+        width: 99%;
+        margin-left: 0px;
         .mobile-follow {
-            display:block;
-            width: 90%;
+            display: block;
+            width: 91%;
             border: 0px;
             height: 195px;
+            box-shadow: 0px;
         }
         .person {
             height: 145px;
@@ -64,22 +76,25 @@
             // width: 100%;
             // margin: 0px;
             background-color: white;
-            img {
-                float: left;
-                height: 120px;
-                width: 120px;
-                margin: 10px 35px 10px 20px;
-            }
-            .info {
-                position: absolute;
-                right: 5px;
-                border: 0px;
-                background-color: inherit;
-                top: 5px;
+            .image-container {
+                overflow: hidden;
+                display: inline-block;
+                width: 37%;
+                height: 85%;
+                margin: 10px 15px;
+                .image-holder {
+                    display: inline-block;
+                    background-position: center;
+                    background-size: cover;
+                    height: 100%;
+                    width: 100%;
+                }
             }
         }
         .data {
-            padding: 40px 5px;
+            
+            position: relative;
+            top: -20px;
             p {
                 font-size: small;
                 padding: 0px;
@@ -89,14 +104,18 @@
                 margin: 10px;
                 border-radius: 5px;
             }
-            .btn-danger{
+            .btn-danger {
+                padding: 5px;
                 position: relative;
-                left: 60px;
+                left: 90px;
+                top: 0px;
                 font-size: small;
             }
-            .btn-primary{
+            .btn-primary {
+                padding: 5px;
                 position: relative;
-                left: 60px;
+                left: 90px;
+                top: 0px;
                 font-size: small;
             }
         }

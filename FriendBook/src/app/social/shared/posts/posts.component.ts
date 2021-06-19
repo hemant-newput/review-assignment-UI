@@ -154,7 +154,9 @@ export class PostsComponent implements OnInit {
     }
     return result;
   }
-
+  getInternalAccess(){
+    return this.sharedService.getInternalAccess();
+  }
   enlargePost(postImage): void {
     this.selectedImage = postImage;
   }

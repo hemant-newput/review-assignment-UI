@@ -26,9 +26,8 @@ export class FriendListService {
     const url = `${this.backendUrl}/home/friends/list/${userID}`;
     return this.http.post<any>(url, { observe: 'response' });
   }
-  unfriend(friend,data) {
-    console.log('Please unfriend : ' + JSON.stringify(friend));
-    const url = `${this.backendUrl}/home/friends/Unfriend/${friend.userID}`;
+  unfriend(userID) {
+    const url = `${this.backendUrl}/home/friends/Unfriend/${userID}`;
     return this.http.post<any>(url, { observe: 'response' });
   }
   addFriend(userID) {

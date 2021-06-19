@@ -1,18 +1,19 @@
 .parent{
     margin: 20px;
-    height: 100%;
+    height: 420px;
+    overflow: scroll;
     box-shadow: 2px 2px 2px grey;
     width: 100%;
     background-color: white;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     img{
     height: 50px;
         margin: 0px 0px;
     }
     .container{
         height: 335px;
+        padding: 15px;
         overflow: scroll;
     }
     .heading{
@@ -34,11 +35,23 @@
         display: flex;
         flex-direction: row;
         margin:5px auto;
+        .addIcon{
+            .fa-trash{
+                font-size: larger;
+                &:hover{
+                    color: red;
+                }
+            }
+            .fa-user-plus{
+                font-size: larger;
+                &:hover{
+                    color:rgb(0, 102, 255);
+                }
+            }
+        }
     }
     .person-details{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        width: 70%;
         cursor: pointer;
         p{
             margin: 0px;
@@ -52,14 +65,13 @@
 
 @media (max-width: 1000px) {
     .parent{
-        margin: 10px;
+        margin: -9px 10px 10px 10px;
         height: 100%;
         box-shadow: 2px 2px 2px grey;
         width: 103%;
         background-color: white;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
         img{
         height: 50px;
             margin: 0px 0px;

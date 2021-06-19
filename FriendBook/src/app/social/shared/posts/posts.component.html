@@ -17,11 +17,11 @@
         [ngClass]="post.userShared ? 'postShared' : 'postDisliked'" data-toggle="modal" data-target="#sharePostModal"><i
           class="fa fa-share-alt"></i> Share ( {{post.shares}} )</button>
     </div>
-    <button class="info"><i class="fa fa-trash" (click)="deletePost(post)" aria-hidden="true"></i></button>
+    <button *ngIf = "getInternalAccess()" class="info"><i class="fa fa-trash" (click)="deletePost(post)" aria-hidden="true"></i></button>
     <img (click)="swapTimeline(post)" src={{post.profileImage}} class="logo" alt="">
   </div>
   <div *ngIf=!posts.length>
-    <app-empty-state></app-empty-state>
+    <app-empty-state [loader]="false"></app-empty-state>
   </div>
 
   <div class="add-post" *ngIf="internalAccess">
@@ -101,5 +101,5 @@
 </div>
 
 <div class="loader" *ngIf="isLoading">
-  <app-loader [size]="xl" [speed]="high"></app-loader>
+  <app-loader [size]="xl" [loader]="true"></app-loader>
 </div>

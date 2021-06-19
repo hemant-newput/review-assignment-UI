@@ -1,16 +1,20 @@
 <div class="parent">
     <div class="heading">
-        WHO TO FOLLOW 
-        <img src="../../../../assets/follow.gif" alt="">
+        WHO TO FOLLOW
         <hr>
     </div>
-    <div class="container" >
-        <div class="person"*ngFor="let person of suggetions,index as i ">
-            <img src='../../../../assets/loginAvatar.png' alt="">
-            <div class="person-details">
-            <p style="font-weight: bold;"(click)="fetchFriendProfile(person)" class="name">{{person.name}}</p>
-            <p>{{person.position}}</p>
+    <div class="container1">
+        <div class="person m-2" *ngFor="let person of suggetions,index as i ">
+            <img src="{{person.profileImage}}" class="rounded-circle pl-2" alt="">
+            <div class="person-details pl-2">
+                <p style="font-weight: bold;" (click)="fetchFriendProfile(person)" class="name">{{person.name}}</p>
+                <p>{{person.position}}</p>
+            </div>
+            <div class="addIcon">
+                <i *ngIf="!person.status" (click)="addFriend(person)" class="fa fa-user-plus"></i>
+                <i *ngIf="person.status" (click)="unFriend(person)" class="fa fa-trash"></i>
             </div>
         </div>
+
     </div>
 </div>

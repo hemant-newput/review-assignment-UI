@@ -6,11 +6,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthRoutingModule } from './auth-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { WatcherComponent } from './watcher/watcher.component';
+import { ForgetComponent } from './forget/forget.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent, SignUpComponent, WatcherComponent],
+  declarations: [LoginComponent, SignUpComponent, WatcherComponent, ForgetComponent],
   imports: [
     CommonModule,
     FormsModule,

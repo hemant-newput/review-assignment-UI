@@ -3,7 +3,10 @@
     <app-follow></app-follow>
   </div>
   <div class="person" *ngFor="let friend of friendList,index as i ">
-    <img src={{friend.image}} height="90%" alt="">
+    <div class="image-container">
+      <div style="background-image: url({{friend.image}})" class="image-holder">
+      </div>
+    </div>
     <div class="data" (click)=speakAbout(friend)>
       <p (click)=swapProfile(friend)><strong>{{friend.name}}</strong></p>
       <p>{{friend.position}} at {{friend.company}}</p>
@@ -14,10 +17,10 @@
     </div>
   </div>
   <div *ngIf="!friendList.length">
-    <app-empty-state></app-empty-state>
+    <app-empty-state [loader]="false"></app-empty-state>
   </div>
 </div>
 
 <div class="loader" *ngIf="isLoading">
-  <app-loader [size]="xl" [speed]="high"></app-loader>
+  <app-loader [size]="xl" [loader]="true"></app-loader>
 </div>

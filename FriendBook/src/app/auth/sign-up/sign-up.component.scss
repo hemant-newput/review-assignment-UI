@@ -1,57 +1,99 @@
-.login-form{
+.parent {
+  background: linear-gradient(
+    to right,
+    #2ebf91,
+    #8360c3
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  position: relative;
+  height: 100%;
+  color: white;
+  
+.error{
+  border: 1px solid red;
+}
+  .login-form {
     text-align: center;
     position: relative;
     margin: 0px auto;
-
     background-color: transparent;
     width: 1200px;
-    .signUpForm{
-        background-color: rgba(0, 0, 0,0.6);
-        padding-top: 50px;
-    }
-    }
-    .input-text{
-        margin: 10px 30px;
-        padding: 10px 20px;
-        line-height: 20px;
-        width: 400px;
-        background-color:rgb(255, 255, 255);
-        opacity: 0.8;
-        border-radius: 20px;
-        font-size: larger;
-    }
-
-    img{
-        margin: 50px;
-    }
-    .parent{
-        background: #8360c3; /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #2ebf91, #8360c3); /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(
-            to right,
-            #2ebf91,
-            #8360c3
-        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    .form-fields{
+      height: 70px;
+      width: 50%;
+      float: left;
+      .validation{
+        color: red;
+        width: 82%;
         position: relative;
-        height: 100%;
-        color: white;
-
+        top:-8px;
+        font-size: small;
+        text-align: right;
+        border: 0px;
+      }
     }
-
-    button {
-        margin: 40px;
-        padding: 10px 40px;
-        background-color: rgba(124, 123, 123, 0.281);
-        color: white
-      }
-      button:hover{
-          color:white;
-          font-weight: bolder;
-      }
-.login{
-    padding-top: 30px;
-    color: black;
-    a{
+    .signUpForm {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding-top: 50px;
+    }
+  .login {
+      padding-top: 30px;
+      color: black;
+      a {
         color: inherit;
+      }
     }
+  }
+  .input-text,.input-select {
+    margin: 10px 30px;
+    padding: 10px 20px;
+    line-height: 20px;
+    width: 400px;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.8;
+    border-radius: 20px;
+    font-size: large;
+    &:focus{
+      outline: 0px;
+  }
+  label{
+    color: black;
+    font-size: medium;
+  }
+  input{
+    margin:10px;
+  }
+  }
+  img {
+    margin: 50px;
+  }
+}
+.input-checkbox {
+  margin: 10px 30px;
+  padding: 10px 20px;
+  line-height: 20px;
+  width: 5%;
+  background-color: rgb(255, 255, 255);
+  opacity: 0.8;
+  border-radius: 20px;
+  font-size: larger;
+  &:focus{
+    outline: 0px;
+}
+img {
+  margin: 50px;
+}
+}
+.buttons{
+clear: both;  
+button {
+  margin: 40px;
+  padding: 10px 40px;
+  background-color: rgba(124, 123, 123, 0.281);
+  color: white;
+}
+button:hover {
+  color: white;
+  font-weight: bolder;
+}
+
 }
