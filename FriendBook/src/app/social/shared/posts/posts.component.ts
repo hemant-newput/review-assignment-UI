@@ -69,8 +69,8 @@ export class PostsComponent implements OnInit {
           }
         }
       });
-      this.postService.likePost(post).subscribe(() => {
-        this.sharedService.speak("Ahh i dont like it");
+      this.postService.dislikePost(post).subscribe(() => {
+        this.sharedService.speak('Ahh i dont like it');
       });
     } else {
       post.userLiked = true;
@@ -81,8 +81,7 @@ export class PostsComponent implements OnInit {
         }
       });
       this.postService.likePost(post).subscribe(() => {
-
-        this.sharedService.speak("this is nice i guess")
+        this.sharedService.speak('this is nice i guess')
       });
     }
   }
