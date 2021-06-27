@@ -9,13 +9,14 @@
                     placeholder="Enter Username" />
                 <br />
                 <button name="button" (click)="submitForm()" class="btn btn-primary custom-btn">
-                    Proceed
+                    <span *ngIf="!isLoading">Proceed</span>
+                    <span *ngIf="isLoading" class="spinner-border" role="status"></span>
                 </button>
             </form>
             <br>
         <div class="signUp">
             <br>
-            <a routerLink="signUp">Dont Have an Account Sign Up Now</a>
+            <a routerLink="/auth/signUp">Dont Have an Account Sign Up Now</a>
         </div>
         </div>
         

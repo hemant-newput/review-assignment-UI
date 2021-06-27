@@ -11,6 +11,7 @@ import { SharedService } from 'src/app/services/sharedServices/shared.service';
 })
 export class ForgetComponent implements OnInit {
   public loginForm: FormGroup;
+  public isLoading: boolean;
   constructor(
     private formBuilder: FormBuilder,
     private loginService: LoginService,
@@ -28,9 +29,14 @@ export class ForgetComponent implements OnInit {
     });
   }
   submitForm(): void {
+    this.isLoading = true;
     this.loginService
       .resetPassword(this.loginForm.value.username)
       .subscribe(
+        () => {
+          this.isLoading = false;
+          this.toastr.success('Password Sent to Your Email.. Please check your Inbox');
+        }
       );
   }
 }

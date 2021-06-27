@@ -15,3 +15,16 @@
         }
     }
 }
+
+@media (max-width: 1000px) {
+  .parent{
+      margin-top: 10px;
+      height: 300px;
+      .imageHolder{
+        img{
+            width: 320px;
+            height: 200px;
+        }
+      }
+  }
+}
