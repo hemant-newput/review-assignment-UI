@@ -1,6 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { loginResponse } from 'src/app/interfaces/loginResponse.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +11,12 @@ export class LoginService {
 
     let urls = `${this.url}/auth/login`;
     let body = { userName, password };
-    return this.http.post<loginResponse>(urls, body, { observe: 'response' })
+    return this.http.post<any>(urls, body, { observe: 'response' })
   }
   resetPassword(userName){
     let urls = `${this.url}/auth/forget`;
     let body = { userName };
-    return this.http.post<loginResponse>(urls, body, { observe: 'response' })
+    return this.http.post<any>(urls, body, { observe: 'response' })
   }
 }
 

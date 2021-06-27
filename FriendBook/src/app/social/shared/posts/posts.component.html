@@ -12,10 +12,10 @@
       <p> {{post.description}} </p>
       <hr>
       <button class="likeBtn" (click)='likePost(post)' [ngClass]="post.userLiked ? 'postLiked' : 'postDisliked'"><i
-          class="fa fa-thumbs-up"></i> Like ( {{post.likes}} )</button>
+          class="fa fa-thumbs-up"></i> Like ( {{post.numberOfLikes}} )</button>
       <button class="shareBtn" (click)='saveSelectedPost(post)'
         [ngClass]="post.userShared ? 'postShared' : 'postDisliked'" data-toggle="modal" data-target="#sharePostModal"><i
-          class="fa fa-share-alt"></i> Share ( {{post.shares}} )</button>
+          class="fa fa-share-alt"></i> Share ( {{post.numberOfShares}} )</button>
     </div>
     <button *ngIf = "getInternalAccess()" class="info"><i class="fa fa-trash" (click)="deletePost(post)" aria-hidden="true"></i></button>
     <img (click)="swapTimeline(post)" src={{post.profileImage}} class="logo" alt="">

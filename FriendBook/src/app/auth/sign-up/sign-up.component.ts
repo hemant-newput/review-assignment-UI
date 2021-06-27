@@ -34,7 +34,7 @@ export class SignUpComponent implements OnInit {
     this.isLoading = true;
     this.signUpService.signUp(this.signUpObject).subscribe(
       (data) => {
-        this.isLoading = true;
+        this.isLoading = false;
         data
           ? this.router.navigate(['/auth/login'])
           : this.router.navigate(['/auth/signup']);

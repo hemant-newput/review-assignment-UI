@@ -30,7 +30,7 @@ export class HomePageComponent implements OnInit {
     this.postService.getUserData(userID).subscribe((postData) => {
       this.position = postData.data.position;
       this.name = postData.data.name;
-      this.internalAccess = postData.internalAccess;
+      this.internalAccess = postData.data.internalAccess;
       this.following = postData.data.following;
       this.followers = postData.data.followers;
       this.activities = postData.data.activities;
@@ -56,6 +56,9 @@ export class HomePageComponent implements OnInit {
         this.messages = [];
       }
     })
+  }
+  reloadProfile(){
+    console.log("data")
   }
 
 }

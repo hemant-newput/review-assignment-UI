@@ -7,25 +7,25 @@
   position: relative;
   height: 100%;
   color: white;
-  
-.error{
-  border: 1px solid red;
-}
+
+  .error {
+    border: 1px solid red;
+  }
   .login-form {
     text-align: center;
     position: relative;
     margin: 0px auto;
     background-color: transparent;
     width: 1200px;
-    .form-fields{
+    .form-fields {
       height: 70px;
       width: 50%;
       float: left;
-      .validation{
+      .validation {
         color: red;
         width: 82%;
         position: relative;
-        top:-8px;
+        top: -8px;
         font-size: small;
         text-align: right;
         border: 0px;
@@ -35,7 +35,7 @@
       background-color: rgba(0, 0, 0, 0.6);
       padding-top: 50px;
     }
-  .login {
+    .login {
       padding-top: 30px;
       color: black;
       a {
@@ -43,7 +43,8 @@
       }
     }
   }
-  .input-text,.input-select {
+  .input-text,
+  .input-select {
     margin: 10px 30px;
     padding: 10px 20px;
     line-height: 20px;
@@ -52,16 +53,16 @@
     opacity: 0.8;
     border-radius: 20px;
     font-size: large;
-    &:focus{
+    &:focus {
       outline: 0px;
-  }
-  label{
-    color: black;
-    font-size: medium;
-  }
-  input{
-    margin:10px;
-  }
+    }
+    label {
+      color: black;
+      font-size: medium;
+    }
+    input {
+      margin: 10px;
+    }
   }
   img {
     margin: 50px;
@@ -76,24 +77,128 @@
   opacity: 0.8;
   border-radius: 20px;
   font-size: larger;
-  &:focus{
+  &:focus {
     outline: 0px;
+  }
+  img {
+    margin: 50px;
+  }
 }
-img {
-  margin: 50px;
-}
-}
-.buttons{
-clear: both;  
-button {
-  margin: 40px;
-  padding: 10px 40px;
-  background-color: rgba(124, 123, 123, 0.281);
-  color: white;
-}
-button:hover {
-  color: white;
-  font-weight: bolder;
+.buttons {
+  clear: both;
+  button {
+    margin: 40px;
+    padding: 10px 40px;
+    background-color: rgba(124, 123, 123, 0.281);
+    color: white;
+  }
+  button:hover {
+    color: white;
+    font-weight: bolder;
+  }
 }
 
+@media (max-width: 1000px) {
+  .parent {
+    background: linear-gradient(
+      to right,
+      #2ebf91,
+      #8360c3
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    position: relative;
+    height: 100%;
+    color: white;
+
+    .error {
+      border: 1px solid red;
+    }
+    .login-form {
+      text-align: center;
+      position: relative;
+      margin: 0px auto;
+      background-color: transparent;
+      width: 100%;
+      .form-fields {
+        height: 70px;
+        width: 100%;
+        float: none;
+        .validation {
+          color: red;
+          width: 82%;
+          position: relative;
+          top: -8px;
+          font-size: small;
+          text-align: right;
+          border: 0px;
+        }
+      }
+      .signUpForm {
+        background-color: rgba(0, 0, 0, 0.6);
+        padding-top: 10px;
+      }
+      .login {
+        padding-top: 30px;
+        color: black;
+        a {
+          color: inherit;
+        }
+      }
+    }
+    .input-text,
+    .input-select {
+      margin: 5px 0px 0px 10px;
+      padding: 10px 10px;
+      line-height: 20px;
+      width: 280px;
+      background-color: rgb(255, 255, 255);
+      opacity: 0.8;
+      border-radius: 20px;
+      font-size: medium;
+      &:focus {
+        outline: 0px;
+      }
+      label {
+        color: black;
+        font-size: medium;
+      }
+      input {
+        margin: 10px;
+      }
+    }
+    img {
+      margin: 20px;
+      height: 80px;
+      width:  80px;
+    }
+  }
+  .input-checkbox {
+    margin: 10px 10px;
+    padding: 10px 10px;
+    line-height: 20px;
+    width: 5%;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.8;
+    border-radius: 20px;
+    font-size: small;
+    &:focus {
+      outline: 0px;
+    }
+    img {
+      margin: 50px;
+    }
+  }
+  .buttons {
+    clear: both;
+    button {
+      font-size: small;
+      margin: 10px;
+      padding: 10px 40px;
+      background-color: rgba(124, 123, 123, 0.281);
+      color: white;
+    }
+    button:hover {
+      color: white;
+      font-weight: bolder;
+    }
+  }
 }

@@ -32,8 +32,8 @@
 
 </div>
     <div class="timeline right-parent">
-        <app-timeline>
-            <router-outlet name="timelineRouter"></router-outlet>
+        <app-timeline (reloadProfile)="reloadProfile()">
+            <router-outlet (reloadProfile)="reloadProfile()" name="timelineRouter"></router-outlet>
         </app-timeline>
 
     </div>

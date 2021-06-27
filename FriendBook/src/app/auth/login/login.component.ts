@@ -31,24 +31,20 @@ export class LoginComponent implements OnInit {
     this.loginService
       .tryLogin(this.loginForm.value.username, this.loginForm.value.password)
       .subscribe(
-        (data) => {
-          if (data.body.validate) {
-            this.router.navigate(['/home']);
-            localStorage.setItem('token', data.body.token);
-            localStorage.setItem('refreshToken', data.body.refreshToken);
-            localStorage.setItem('userID', data.body.userID.toString());
-            this.toastr.success(data.body.message);
-            this.sharedService.speak(data.body.message);
-          } else {
-            this.router.navigate(['/auth/login']);
-            if (data.body.message === 'No user Found with that userName') {
-              this.toastr.error(data.body.message);
-            } else {
-              this.toastr.warning(data.body.message);
-            }
-          }
+        (resp) => {
+          this.router.navigate(['/home']);
+          localStorage.setItem('token', resp.body.data.token);
+          localStorage.setItem('refreshToken', resp.body.data.refreshToken);
+          localStorage.setItem('userID', resp.body.data.userID.toString());
+          this.toastr.success(resp.body.customMsg);
+          this.sharedService.speak(resp.body.customMsg);
         },
         (err) => {
+          if (err.error.customMsg === 'No user Found with that userName') {
+            this.toastr.error(err.error.message);
+          } else {
+            this.toastr.warning(err.error.message);
+          }
           console.log(err);
         }
       );

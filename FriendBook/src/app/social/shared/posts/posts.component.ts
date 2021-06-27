@@ -63,9 +63,9 @@ export class PostsComponent implements OnInit {
       post.userLiked = false;
       this.posts.map((data) => {
         if (data.name === post.name) {
-          data.likes = parseInt(data.likes, 10);
-          if (data.likes) {
-            data.likes = data.likes -= 1;
+          data.numberOfLikes = parseInt(data.numberOfLikes, 10);
+          if (data.numberOfLikes) {
+            data.numberOfLikes = data.numberOfLikes -= 1;
           }
         }
       });
@@ -76,8 +76,8 @@ export class PostsComponent implements OnInit {
       post.userLiked = true;
       this.posts.map((data) => {
         if (data.name === post.name) {
-          data.likes = parseInt(data.likes, 10);
-          data.likes = data.likes += 1;
+          data.numberOfLikes = parseInt(data.numberOfLikes, 10);
+          data.numberOfLikes = data.numberOfLikes += 1;
         }
       });
       this.postService.likePost(post).subscribe(() => {
@@ -91,8 +91,8 @@ export class PostsComponent implements OnInit {
       this.selectedPost.userShared = true;
       this.posts.map((data) => {
         if (data.name === this.selectedPost.name) {
-          data.shares = parseInt(data.shares, 10);
-          data.shares = data.shares += 1;
+          data.numberOfShares = parseInt(data.numberOfShares, 10);
+          data.numberOfShares = data.numberOfShares += 1;
         }
       });
       this.postService.sharePost(this.selectedPost).subscribe(() => {

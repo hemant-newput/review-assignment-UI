@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToasterService } from 'angular2-toaster';
 import { ToastrService } from 'ngx-toastr';
@@ -11,8 +11,11 @@ import { SharedService } from 'src/app/services/sharedServices/shared.service';
   styleUrls: ['./friend-list.component.scss']
 })
 export class FriendListComponent implements OnInit {
-
-  constructor(private friendService: FriendListService, private sharedService: SharedService, private toastr: ToastrService, private router: Router) { }
+  @Output() readonly reloadProfile: EventEmitter<any> = new EventEmitter();
+  constructor(private friendService: FriendListService,
+              private sharedService: SharedService,
+              private toastr: ToastrService,
+              private router: Router) { }
   public friendList;
   public followers = 0;
   public followings = 0;
@@ -29,7 +32,7 @@ export class FriendListComponent implements OnInit {
     friend.status = false;
     this.friendService.unfriend(friend.userID).subscribe((data) => {
       this.toastr.info(data.message);
-      this.sharedService.speak(`You ${data.message}`)
+      this.sharedService.speak(`You ${data.message}`);
     });
     this.followers -= 1;
     this.sharedService.sendMessage({ friendInfo: { followers: this.followers, followings: this.followings } });
@@ -38,14 +41,14 @@ export class FriendListComponent implements OnInit {
     friend.status = true;
     this.friendService.addFriend(friend.userID).subscribe((data) => {
       this.toastr.info(data.message);
-      this.sharedService.speak(`You ${data.message}`)
+      this.sharedService.speak(`You ${data.message}`);
     });
     this.followers += 1;
     this.sharedService.sendMessage({ friendInfo: { followers: this.followers, followings: this.followings } });
   }
   public fetchFriendData(): void {
     this.friendService.getFriendList(localStorage.getItem('userID')).subscribe((response) => {
-      this.internalAccess = response.internalAccess;
+      this.internalAccess = response.data.internalAccess;
       this.friendList = response.data;
       this.followers = response.data.length;
       this.friendList = this.friendService.sortFriendList(this.friendList);
@@ -54,11 +57,12 @@ export class FriendListComponent implements OnInit {
     });
   }
   public speakAbout(friend) {
-    this.sharedService.speak(`${friend.name} is a ${friend.position} at ${friend.company}`)
+    this.sharedService.speak(`${friend.name} is a ${friend.position} at ${friend.company}`);
   }
   public swapProfile(friend) {
     localStorage.setItem('userID', friend.userID);
     this.router.navigate(['/home/posts']);
+    this.reloadProfile.emit();
     location.reload();
   }
 }
