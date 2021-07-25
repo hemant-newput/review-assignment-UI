@@ -1,9 +1,12 @@
 <div class="parent" id="parent">
     <div class="login-form container shadow-lg">
         <div class="Image">
-            <img src="../assets/loginAvatar.png" width="180px" alt="There is supposed to be an image here" />
+            <img src="../assets/loginAvatar4.png" width="180px" alt="There is supposed to be an image here" />
         </div>
         <div class="fields">
+            <div class="login-text">
+                MEMBER LOGIN
+            </div>
             <form [formGroup]="loginForm">
                 <input type="text" class="input-text" formControlName="username" name="username"
                     placeholder="Enter Username" />
@@ -16,12 +19,14 @@
                 </button>
             </form>
             <br>
-        <div class="signUp">
-            <button routerLink="forget" class="forget">Forget Password</button>
-            <br>
-            <a routerLink="signUp">Dont Have an Account Sign Up Now</a>
+            <div class="signUp">
+                <button routerLink="forget" class="forget">Forget Username/Password</button>
+                <br>
+                <br>
+                <br>
+                <a routerLink="signUp">Create Your Account <i class="fa fa-arrow-right"></i></a>
+            </div>
         </div>
-        </div>
-        
+
     </div>
 </div>

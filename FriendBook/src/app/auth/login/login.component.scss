@@ -1,9 +1,10 @@
-
 .parent {
-    background-image: url("../../../assets/login.jpg");
+    // background-image: url("../../../assets/login.jpg");
+    background: linear-gradient(to right, #2ebf91, #8360c3);
     background-size: cover;
     position: relative;
     height: 100%;
+    min-height: 1000px;
     width: 100%;
     color: white;
     display: flex;
@@ -17,101 +18,128 @@
             border-bottom: 1px;
         }
     }
-    .container{
+    .container {
         text-align: center;
-        height: 90%;
+        background-color: white;
+        height: 70%;
+        min-height: 500px;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        .fields{
+        .fields {
             width: 50%;
+            .login-text {
+                margin: 40px;
+                color: black;
+                font-family: "Abril Fatface";
+                font-size: x-large;
+            }
         }
-        .signUp{
+        .signUp {
+            .forget {
+                color: black;
+                &:hover {
+                    color: rgb(94, 90, 90);
+                }
+            }
             text-align: center;
         }
-        .input-text{
+        .input-text {
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -ms-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border-radius: 20px;
             width: 80%;
-            padding:20px;
+            padding: 20px;
             margin: 10px 20px;
             border: 0px;
-            background-color: rgba(255, 255, 255, 0.329);
+            background-color: rgb(230, 228, 228);
+            &::placeholder{
+                color: black;
+            }
+            &:focus {
+                box-shadow: 0 0 10px rgb(106, 247, 71);
+            }
         }
-        img{
-            width: 60%;
+
+        img {
+            width: 100%;
         }
-        .input-text:focus{
+        .input-text:focus {
             outline: 0px;
         }
-        .btn{
-            margin:10px;
+        .btn {
+            margin: 10px 10px 0px 10px;
         }
-        .custom-btn{
+        .custom-btn {
             margin-top: 50px;
-            padding: 10px 30px;
+            padding: 10px 50px;
             border-radius: 20px;
         }
-        
     }
 }
 
 @media (max-width: 1000px) {
-    
-.parent {
-    background-image: url("../../../assets/login.jpg");
-    background-size: cover;
-    position: relative;
-    height: 100%;
-    width: 100%;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .forget {
+    .parent {
+        background: linear-gradient(to right, #2ebf91, #8360c3);
+        background-size: cover;
+        position: relative;
+        height: 100%;
+        min-height: 500px;
+        width: 100%;
         color: white;
-        background-color: transparent;
-        border: none;
-        &:hover {
-            border-bottom: 1px;
-        }
-    }
-    .container{
-        text-align: center;
-        height: 70%;
         display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
-        .fields{
-            width: 50%;
+        .forget {
+            color: white;
+            background-color: transparent;
+            border: none;
+            &:hover {
+                border-bottom: 1px;
+            }
         }
-        .signUp{
+        .container {
             text-align: center;
+            height: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            .fields {
+                width: 50%;
+            }
+            .signUp {
+                text-align: center;
+                a{
+                    color: black;
+                }
+            }
+            .input-text {
+                border-radius: 20px;
+                width: 100%;
+                text-align: center;
+                padding: 20px;
+                margin: 10px 0px;
+                border: 0px;
+                background-color: rgba(255, 255, 255, 0.329);
+            }
+            img {
+                width: 40%;
+            }
+            .input-text:focus {
+                outline: 0px;
+            }
+            .btn {
+                margin: 10px;
+            }
+            .custom-btn {
+                margin-top: 50px;
+                padding: 10px 30px;
+                border-radius: 20px;
+            }
         }
-        .input-text{
-            border-radius: 20px;
-            width: 100%;
-            text-align: center;
-            padding:20px;
-            margin: 10px 0px;
-            border: 0px;
-            background-color: rgba(255, 255, 255, 0.329);
-        }
-        img{
-            width: 60%;
-        }
-        .input-text:focus{
-            outline: 0px;
-        }
-        .btn{
-            margin:10px;
-        }
-        .custom-btn{
-            margin-top: 50px;
-            padding: 10px 30px;
-            border-radius: 20px;
-        }
-        
     }
-}
 }

@@ -1,16 +1,58 @@
-var box2 = document.querySelector('.container');
-var box = document.querySelector('.parent');
-var boxRect = box.getBoundingClientRect();
+/* Store the element in el */
+var el = document.querySelector('.Image');
 
-box.addEventListener('mousemove', e => {
-  var xPosition = (e.clientX - boxRect.left) / boxRect.width;
-  var yPosition = (e.clientY - boxRect.top) / boxRect.height - 0.8;
-  var xOffset = -(xPosition - 0.8);
-  var dxNorm = Math.min(Math.max(xOffset, -0.8), 0.8)
-  box2.style.transform = `perspective(1000px)
-                        rotateY(${dxNorm*10}deg)
-                        rotateX(${yPosition*10}deg) `
-  box.addEventListener('mouseleave', () => {
-    box2.style.transform = 'skew'
-  })
+/* Get the height and width of the element */
+const height = el.clientHeight
+const width = el.clientWidth
+
+/*
+  * Add a listener for mousemove event
+  * Which will trigger function 'handleMove'
+  * On mousemove
+  */
+el.addEventListener('mousemove', handleMove)
+
+/* Define function a */
+function handleMove(e) {
+  /*
+    * Get position of mouse cursor
+    * With respect to the element
+    * On mouseover
+    */
+  /* Store the x position */
+  const xVal = e.layerX
+  /* Store the y position */
+  const yVal = e.layerY
+  
+  /*
+    * Calculate rotation valuee along the Y-axis
+    * Here the multiplier 20 is to
+    * Control the rotation
+    * You can change the value and see the results
+    */
+  const yRotation = 20 * ((xVal - width / 2) / width)
+  
+  /* Calculate the rotation along the X-axis */
+  const xRotation = -20 * ((yVal - height / 2) / height)
+  
+  /* Generate string for CSS transform property */
+  const string = 'perspective(500px) scale(1.1) rotateX(' + xRotation + 'deg) rotateY(' + yRotation + 'deg)'
+  
+  /* Apply the calculated transformation */
+  el.style.transform = string
+}
+
+/* Add listener for mouseout event, remove the rotation */
+el.addEventListener('mouseout', function() {
+  el.style.transform = 'perspective(500px) scale(1) rotateX(0) rotateY(0)'
+})
+
+/* Add listener for mousedown event, to simulate click */
+el.addEventListener('mousedown', function() {
+  el.style.transform = 'perspective(500px) scale(0.9) rotateX(0) rotateY(0)'
+})
+
+/* Add listener for mouseup, simulate release of mouse click */
+el.addEventListener('mouseup', function() {
+  el.style.transform = 'perspective(500px) scale(1.1) rotateX(0) rotateY(0)'
 })
